@@ -245,6 +245,7 @@
             btnRegistro.TabIndex = 24;
             btnRegistro.Text = "Registrarse";
             btnRegistro.UseVisualStyleBackColor = true;
+            btnRegistro.Click += btnRegistro_Click;
             // 
             // tittleC
             // 

@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Text;
+using System.Text.Json;
 using static BibliotecaClases.Interfaces.InterfazSerializacion;
 
 namespace BibliotecaClases.Usuarios_Tarjetas
@@ -63,7 +64,15 @@ namespace BibliotecaClases.Usuarios_Tarjetas
 
             public string Serializacion(User objeto)
             {
-                return JsonSerializer.Serialize(objeto, new JsonSerializerOptions { WriteIndented = true });
+                // Configurar opciones de serialización para evitar el escape de caracteres especiales
+                var opcionesSerializacion = new JsonSerializerOptions
+                {
+                    WriteIndented = true,
+                    Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+                };
+
+                // Serializar el objeto con las nuevas opciones
+                return JsonSerializer.Serialize(objeto, opcionesSerializacion);
             }
 
             public User Deserializacion(string datos)
