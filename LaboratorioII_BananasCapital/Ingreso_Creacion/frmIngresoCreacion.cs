@@ -1,9 +1,15 @@
 using BibliotecaClases.Eventos;
+using BibliotecaClases.Manejador;
 
 namespace LaboratorioII_BananasCapital
 {
     public partial class frmIngresoCreacion : Form
     {
+        //VARIABLE GLOBAL//
+        public static string? actualUsuario;
+        public static string? actualRol;
+
+        //INSTANCIA//
         private EventosUsuario eventosUsuario;
 
         public frmIngresoCreacion()
@@ -15,6 +21,16 @@ namespace LaboratorioII_BananasCapital
 
         private void btnRegistro_Click(object sender, EventArgs e)
         {
+            List<TextBox> textboxesCrear = this.panel1.Controls.OfType<TextBox>().ToList();
+            foreach (TextBox textbox in textboxesCrear)
+            {
+                if (textbox.Text == "")
+                {
+                    MessageBox.Show("El campo " + textbox.Name + " está vacío. Por favor, completalo para poder registrarte.");
+                    return;
+                }
+            }
+
             // TEXT´S BOX//
 
             string nombre = txtCreacionNombre.Text;
@@ -42,6 +58,29 @@ namespace LaboratorioII_BananasCapital
             txtCreacionUsername.Text = "";
             txtContraseña.Text = "";
             txtCreacionCorreo.Text = "";
+
+        }
+
+        private void btnIniciarIngreso_Click(object sender, EventArgs e)
+        {
+
+            string nombreCuenta = txtNombreUsuario.Text;
+            string contraseñaCuenta = txtContraseña.Text;
+            string rol;
+
+            ControladorIngreso ingreso = new ControladorIngreso();
+            ingreso.ValidarLogin(nombreCuenta, contraseñaCuenta, out rol);
+
+            
+        }
+
+        private void btnIniciarAdmin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnIniciarTrial_Click(object sender, EventArgs e)
+        {
 
         }
     }

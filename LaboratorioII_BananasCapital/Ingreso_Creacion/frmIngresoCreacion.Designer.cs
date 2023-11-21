@@ -107,6 +107,7 @@
             btnIniciarTrial.TabIndex = 5;
             btnIniciarTrial.Text = "Iniciar Trial";
             btnIniciarTrial.UseVisualStyleBackColor = true;
+            btnIniciarTrial.Click += btnIniciarTrial_Click;
             // 
             // loginContraseña
             // 
@@ -143,6 +144,7 @@
             btnIniciarAdmin.TabIndex = 4;
             btnIniciarAdmin.Text = "Iniciar Admin";
             btnIniciarAdmin.UseVisualStyleBackColor = true;
+            btnIniciarAdmin.Click += btnIniciarAdmin_Click;
             // 
             // txtContraseña
             // 
@@ -169,6 +171,7 @@
             btnIniciarIngreso.TabIndex = 3;
             btnIniciarIngreso.Text = "Iniciar Sesion";
             btnIniciarIngreso.UseVisualStyleBackColor = true;
+            btnIniciarIngreso.Click += btnIniciarIngreso_Click;
             // 
             // pnTitulo
             // 

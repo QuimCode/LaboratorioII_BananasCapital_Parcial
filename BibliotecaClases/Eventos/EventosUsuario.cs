@@ -4,8 +4,9 @@ namespace BibliotecaClases.Eventos
 {
     public class EventosUsuario
     {
-        // Declarar un evento que se activará después de capturar los datos
+        
         public event EventHandler<ClassUsuarios.User> DatosCapturados;
+        public event EventHandler<ClassUsuarios.User> DatosCapturados2;
 
         public ClassUsuarios.User CapturarDatosUsuario(string nombre, string apellido, string dni, string cuit_cuil, string celular,
                                                               string domicilio, string username, string contraseña, string email)
