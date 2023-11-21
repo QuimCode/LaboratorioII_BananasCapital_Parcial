@@ -8,10 +8,11 @@ namespace BibliotecaClases.Interfaces
 {
     public class InterfazSerializacion
     {
-        public interface ISerializacionJson
+        public interface ISerializacion<T>
         {
-            string SerializacionDeJson();
-            void DeserializacionDelJson(string nombreJson);
+            string Serializacion(T objeto);
+            T Deserializacion(string datos);
+            void GuardarEnArchivo();
         }
     }
 }

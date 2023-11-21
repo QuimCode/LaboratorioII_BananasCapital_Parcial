@@ -7,29 +7,21 @@ namespace BibliotecaClases.Usuarios_Tarjetas
     {
         // CLASE ABSTRACTA PADRE //
 
-        public abstract class Persona : ISerializacionJson
+        public abstract class Persona
         {
             public string? Nombre { get; set; }
             public string? Apellido { get; set; }
             public string? Rol { get; set; }
             public decimal Saldo { get; set; } = 0;
 
-            public string SerializacionDeJson()
-            {
-                return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
-            }
-
-            public void DeserializacionDelJson(string nombreJson)
-            {
-                var deserializedPersona = JsonSerializer.Deserialize<Persona>(jsonString);
-            }
-
         }
 
         // CLASE HEREDADA DE PERSONA //
 
-        public class User : Persona
+        public class User : Persona, ISerializacion<User>
         {
+            private const string ArchivoUsuarios = "UsuariosDataBase.json";
+
             //private static string _actualUsuario;
 
             //public static string ActualUsuario
@@ -67,27 +59,92 @@ namespace BibliotecaClases.Usuarios_Tarjetas
                 Rol = "Usuario";
             }
 
+            //CONTRATO//
+
+            public string Serializacion(User objeto)
+            {
+                return JsonSerializer.Serialize(objeto, new JsonSerializerOptions { WriteIndented = true });
+            }
+
+            public User Deserializacion(string datos)
+            {
+                return JsonSerializer.Deserialize<User>(datos);
+            }
+
+            public void GuardarEnArchivo()
+            {
+                // Serializar el usuario a JSON
+                string usuarioJson = Serializacion(this);
+
+                // Guardar el JSON en un archivo sin sobrescribir (AppendAllText)
+                File.AppendAllText(ArchivoUsuarios, usuarioJson + Environment.NewLine);
+            }
+
         }
 
         // CLASES HEREDADAS DE USER  //
 
         public class UserTrial : User
         {
+            private const string ArchivoUsuarios = "UsuariosDataBase.json";
+
             public UserTrial()
                 : base("UserTrial", "trial", "TRIAL", "TRIAL", "TRIAL", "TRIAL", "TRIAL", "TRIAL", "TRIAL")
             {
                 Rol = "UsuarioTrial";
                 Saldo = 500000;
             }
+
+            //CONTRATO//
+            public string Serializacion(User objeto)
+            {
+                return JsonSerializer.Serialize(objeto, new JsonSerializerOptions { WriteIndented = true });
+            }
+
+            public User Deserializacion(string datos)
+            {
+                return JsonSerializer.Deserialize<User>(datos);
+            }
+
+            public void GuardarEnArchivo()
+            {
+                // Serializar el usuario a JSON
+                string usuarioJson = Serializacion(this);
+
+                // Guardar el JSON en un archivo sin sobrescribir (AppendAllText)
+                File.AppendAllText(ArchivoUsuarios, usuarioJson + Environment.NewLine);
+            }
         }
 
         public class Admin : User
         {
+            private const string ArchivoUsuarios = "UsuariosDataBase.json";
+
             public Admin()
                 : base("UserAdmin", "admin", "ADMIN", "ADMIN", "ADMIN", "ADMIN", "ADMIN", "ADMIN", "ADMIN")
             {
                 Rol = "UsuarioAdministrador";
                 Saldo = 500000;
+            }
+
+            //CONTRATO//
+            public string Serializacion(User objeto)
+            {
+                return JsonSerializer.Serialize(objeto, new JsonSerializerOptions { WriteIndented = true });
+            }
+
+            public User Deserializacion(string datos)
+            {
+                return JsonSerializer.Deserialize<User>(datos);
+            }
+
+            public void GuardarEnArchivo()
+            {
+                // Serializar el usuario a JSON
+                string usuarioJson = Serializacion(this);
+
+                // Guardar el JSON en un archivo sin sobrescribir (AppendAllText)
+                File.AppendAllText(ArchivoUsuarios, usuarioJson + Environment.NewLine);
             }
         }
 
