@@ -1,5 +1,6 @@
+using BC_Formularios;
 using BibliotecaClases.Eventos;
-using BibliotecaClases.Manejador;
+using static BibliotecaClases.Usuarios_Tarjetas.ClassUsuarios;
 
 namespace LaboratorioII_BananasCapital
 {
@@ -16,7 +17,7 @@ namespace LaboratorioII_BananasCapital
         {
             InitializeComponent();
             eventosUsuario = new EventosUsuario();
-            eventosUsuario.DatosCapturados += eventosUsuario.EventDatosCapturados;
+            eventosUsuario.DatosCapturados += eventosUsuario.EventosUsuarios;
         }
 
         private void btnRegistro_Click(object sender, EventArgs e)
@@ -56,26 +57,48 @@ namespace LaboratorioII_BananasCapital
             txtCreacionCelular.Text = "";
             txtCreacionDomicilio.Text = "";
             txtCreacionUsername.Text = "";
-            txtContraseña.Text = "";
+            txtCreacionContraseña.Text = "";
             txtCreacionCorreo.Text = "";
 
         }
-
         private void btnIniciarIngreso_Click(object sender, EventArgs e)
+        {
+            string nombreCuenta = txtNombreUsuario.Text;
+            string contraseñaCuenta = txtContraseña.Text;
+            string rol;
+
+            User usuario = new();
+            if(usuario.Deserializacion(nombreCuenta, contraseñaCuenta, out rol))
+            {
+                frmMenuApp formulario = new frmMenuApp();
+                formulario.Show();
+            }
+            else
+            {
+                MessageBox.Show("Verifica tus credenciales.");
+            }
+
+
+        }
+
+
+        private void btnIniciarAdmin_Click(object sender, EventArgs e)
         {
 
             string nombreCuenta = txtNombreUsuario.Text;
             string contraseñaCuenta = txtContraseña.Text;
             string rol;
 
-            ControladorIngreso ingreso = new ControladorIngreso();
-            ingreso.ValidarLogin(nombreCuenta, contraseñaCuenta, out rol);
-
-            
-        }
-
-        private void btnIniciarAdmin_Click(object sender, EventArgs e)
-        {
+            User usuario = new();
+            if (usuario.Deserializacion(nombreCuenta, contraseñaCuenta, out rol))
+            {
+                frmMenuApp formulario = new frmMenuApp();
+                formulario.Show();
+            }
+            else
+            {
+                MessageBox.Show("Verifica tus credenciales.");
+            }
 
         }
 
@@ -83,5 +106,7 @@ namespace LaboratorioII_BananasCapital
         {
 
         }
+
+
     }
 }

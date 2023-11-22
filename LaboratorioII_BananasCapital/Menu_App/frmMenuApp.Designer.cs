@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuApp));
             panel1 = new Panel();
+            richTextBox1 = new RichTextBox();
             mnMenu = new MenuStrip();
             tuPerfilToolStripMenuItem = new ToolStripMenuItem();
             verCuentaToolStripMenuItem = new ToolStripMenuItem();
@@ -41,14 +42,13 @@
             depositarDineroToolStripMenuItem = new ToolStripMenuItem();
             retirarDineroToolStripMenuItem = new ToolStripMenuItem();
             mercadoToolStripMenuItem = new ToolStripMenuItem();
-            testNuggetToolStripMenuItem = new ToolStripMenuItem();
-            testSQLToolStripMenuItem = new ToolStripMenuItem();
             accionesToolStripMenuItem = new ToolStripMenuItem();
             dolarMEPToolStripMenuItem = new ToolStripMenuItem();
             administracionToolStripMenuItem = new ToolStripMenuItem();
             eliminarCuentasToolStripMenuItem = new ToolStripMenuItem();
             modificarCuentasToolStripMenuItem = new ToolStripMenuItem();
-            richTextBox1 = new RichTextBox();
+            testNuggetToolStripMenuItem = new ToolStripMenuItem();
+            testSQLToolStripMenuItem = new ToolStripMenuItem();
             panel1.SuspendLayout();
             mnMenu.SuspendLayout();
             SuspendLayout();
@@ -62,6 +62,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1132, 741);
             panel1.TabIndex = 2;
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.BackColor = Color.Khaki;
+            richTextBox1.Font = new Font("Franklin Gothic Medium", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            richTextBox1.Location = new Point(98, 188);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(937, 365);
+            richTextBox1.TabIndex = 4;
+            richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
             // mnMenu
             // 
@@ -85,6 +95,7 @@
             verCuentaToolStripMenuItem.Name = "verCuentaToolStripMenuItem";
             verCuentaToolStripMenuItem.Size = new Size(180, 22);
             verCuentaToolStripMenuItem.Text = "Ver Cuenta";
+            verCuentaToolStripMenuItem.Click += verCuentaToolStripMenuItem_Click;
             // 
             // eliminarCuentaToolStripMenuItem
             // 
@@ -111,6 +122,7 @@
             registrarTarjetaToolStripMenuItem.Name = "registrarTarjetaToolStripMenuItem";
             registrarTarjetaToolStripMenuItem.Size = new Size(180, 22);
             registrarTarjetaToolStripMenuItem.Text = "Registrar Tarjeta";
+            registrarTarjetaToolStripMenuItem.Click += registrarTarjetaToolStripMenuItem_Click;
             // 
             // eliminarTarjetaToolStripMenuItem
             // 
@@ -123,12 +135,14 @@
             depositarDineroToolStripMenuItem.Name = "depositarDineroToolStripMenuItem";
             depositarDineroToolStripMenuItem.Size = new Size(180, 22);
             depositarDineroToolStripMenuItem.Text = "Depositar Dinero";
+            depositarDineroToolStripMenuItem.Click += depositarDineroToolStripMenuItem_Click;
             // 
             // retirarDineroToolStripMenuItem
             // 
             retirarDineroToolStripMenuItem.Name = "retirarDineroToolStripMenuItem";
             retirarDineroToolStripMenuItem.Size = new Size(180, 22);
             retirarDineroToolStripMenuItem.Text = "Retirar Dinero";
+            retirarDineroToolStripMenuItem.Click += retirarDineroToolStripMenuItem_Click;
             // 
             // mercadoToolStripMenuItem
             // 
@@ -137,28 +151,17 @@
             mercadoToolStripMenuItem.Size = new Size(66, 20);
             mercadoToolStripMenuItem.Text = "Mercado";
             // 
-            // testNuggetToolStripMenuItem
-            // 
-            testNuggetToolStripMenuItem.Name = "testNuggetToolStripMenuItem";
-            testNuggetToolStripMenuItem.Size = new Size(79, 20);
-            testNuggetToolStripMenuItem.Text = "TestNugget";
-            // 
-            // testSQLToolStripMenuItem
-            // 
-            testSQLToolStripMenuItem.Name = "testSQLToolStripMenuItem";
-            testSQLToolStripMenuItem.Size = new Size(60, 20);
-            testSQLToolStripMenuItem.Text = "TestSQL";
-            // 
             // accionesToolStripMenuItem
             // 
             accionesToolStripMenuItem.Name = "accionesToolStripMenuItem";
             accionesToolStripMenuItem.Size = new Size(180, 22);
             accionesToolStripMenuItem.Text = "Acciones";
+            accionesToolStripMenuItem.Click += accionesToolStripMenuItem_Click;
             // 
             // dolarMEPToolStripMenuItem
             // 
             dolarMEPToolStripMenuItem.Name = "dolarMEPToolStripMenuItem";
-            dolarMEPToolStripMenuItem.Size = new Size(180, 22);
+            dolarMEPToolStripMenuItem.Size = new Size(129, 22);
             dolarMEPToolStripMenuItem.Text = "Dolar MEP";
             // 
             // administracionToolStripMenuItem
@@ -173,22 +176,25 @@
             eliminarCuentasToolStripMenuItem.Name = "eliminarCuentasToolStripMenuItem";
             eliminarCuentasToolStripMenuItem.Size = new Size(180, 22);
             eliminarCuentasToolStripMenuItem.Text = "Eliminar Cuentas";
+            eliminarCuentasToolStripMenuItem.Click += eliminarCuentasToolStripMenuItem_Click;
             // 
             // modificarCuentasToolStripMenuItem
             // 
             modificarCuentasToolStripMenuItem.Name = "modificarCuentasToolStripMenuItem";
-            modificarCuentasToolStripMenuItem.Size = new Size(180, 22);
+            modificarCuentasToolStripMenuItem.Size = new Size(171, 22);
             modificarCuentasToolStripMenuItem.Text = "Modificar Cuentas";
             // 
-            // richTextBox1
+            // testNuggetToolStripMenuItem
             // 
-            richTextBox1.BackColor = Color.Khaki;
-            richTextBox1.Font = new Font("Franklin Gothic Medium", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            richTextBox1.Location = new Point(98, 188);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(937, 365);
-            richTextBox1.TabIndex = 4;
-            richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            testNuggetToolStripMenuItem.Name = "testNuggetToolStripMenuItem";
+            testNuggetToolStripMenuItem.Size = new Size(79, 20);
+            testNuggetToolStripMenuItem.Text = "TestNugget";
+            // 
+            // testSQLToolStripMenuItem
+            // 
+            testSQLToolStripMenuItem.Name = "testSQLToolStripMenuItem";
+            testSQLToolStripMenuItem.Size = new Size(60, 20);
+            testSQLToolStripMenuItem.Text = "TestSQL";
             // 
             // frmMenuApp
             // 
@@ -196,6 +202,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1124, 741);
             Controls.Add(panel1);
+            IsMdiContainer = true;
             MainMenuStrip = mnMenu;
             Name = "frmMenuApp";
             StartPosition = FormStartPosition.CenterScreen;

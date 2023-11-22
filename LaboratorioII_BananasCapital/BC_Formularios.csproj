@@ -9,13 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BibliotecaClases\BibliotecaClases.csproj" />
+    <PackageReference Include="BouncyCastle.NetCore" Version="2.2.1" />
+    <PackageReference Include="itext7" Version="8.0.2" />
+    <PackageReference Include="itext7.bouncy-castle-adapter" Version="8.0.2" />
+    <PackageReference Include="itext7.bouncy-castle-fips-adapter" Version="8.0.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Menu_App\Menu_Mercado\frmAcciones.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <ProjectReference Include="..\BibliotecaClases\BibliotecaClases.csproj" />
   </ItemGroup>
 
 </Project>

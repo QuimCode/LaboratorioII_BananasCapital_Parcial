@@ -7,8 +7,7 @@ namespace BibliotecaClases.Manejador
     {
         public bool ValidarLogin(string usuario, string contraseña, out string rol)
         {
-            string ArchivoUsuarios = @"E:\Progra - Labo II\LaboratorioII_BananasCapital_Parcial\LaboratorioII_BananasCapital\bin\Debug\net6.0
-                                     - windows";
+            string ArchivoUsuarios = @"C:\Users\quima\OneDrive\Escritorio";
 
             var usuarios = JsonSerializer.Deserialize<List<User>>(File.ReadAllText(ArchivoUsuarios));
 

@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="mnMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="mnMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="richTextBox1.Text" xml:space="preserve">
     <value>¡Bienvenido a BananasCapital, tu puerta de entrada al emocionante mundo de la inversión en la Bolsa! Somos una innovadora aplicación que te conecta con brokers latinoamericanos de renombre, ofreciéndote la oportunidad de diversificar tus ahorros y maximizar tus ganancias, ya sea a corto o largo plazo, de acuerdo a tu propio método de inversión.
 
@@ -130,4 +124,7 @@ En BananasCapital, creemos que todos merecen tener acceso a las oportunidades qu
 
 Nuestra misión es proporcionarte la información y las herramientas necesarias para que tomes decisiones informadas sobre tus inversiones, construyas un portafolio sólido y, en última instancia, logres tus metas financieras. Así que, ¿qué estás esperando? ¡Únete a la comunidad de BananasCapital y comienza a construir un futuro financiero sólido hoy mismo!</value>
   </data>
+  <metadata name="mnMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

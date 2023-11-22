@@ -1,5 +1,7 @@
-﻿using System.Text;
-using System.Text.Json;
+﻿using System.Text.Json;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
 using static BibliotecaClases.Interfaces.InterfazSerializacion;
 
 namespace BibliotecaClases.Usuarios_Tarjetas
@@ -23,14 +25,6 @@ namespace BibliotecaClases.Usuarios_Tarjetas
         {
             private const string ArchivoUsuarios = "UsuariosDataBase.json";
 
-            //private static string _actualUsuario;
-
-            //public static string ActualUsuario
-            //{
-            //    get { return _actualUsuario; }
-            //    set { _actualUsuario = value; }
-            //}
-
             //ATRIBUTOS//
 
             public string DNI { get; set; }
@@ -41,6 +35,7 @@ namespace BibliotecaClases.Usuarios_Tarjetas
             public string Contraseña { get; set; }
             public string Email { get; set; }
             public int CantidadAcciones { get; set; } = 0;
+            public DateTime FechaRegistro { get; set; }
 
             //CONSTRUCTOR//
 
@@ -60,19 +55,21 @@ namespace BibliotecaClases.Usuarios_Tarjetas
                 Rol = "Usuario";
             }
 
+            public User()
+            {
+            }
+
             //CONTRATO//
 
-            public string Serializacion(User objeto)
+            public string Serializacion(List<User> objetos)
             {
-                // Configurar opciones de serialización para evitar el escape de caracteres especiales
                 var opcionesSerializacion = new JsonSerializerOptions
                 {
                     WriteIndented = true,
                     Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping
                 };
 
-                // Serializar el objeto con las nuevas opciones
-                return JsonSerializer.Serialize(objeto, opcionesSerializacion);
+                return JsonSerializer.Serialize(objetos, opcionesSerializacion);
             }
 
             public User Deserializacion(string datos)
@@ -80,22 +77,150 @@ namespace BibliotecaClases.Usuarios_Tarjetas
                 return JsonSerializer.Deserialize<User>(datos);
             }
 
+            public bool Deserializacion(string usuario, string contraseña, out string rol)
+            {
+                var usuarios = JsonSerializer.Deserialize<List<User>>(File.ReadAllText(ArchivoUsuarios));
+
+                foreach (var usuarioJson in usuarios)
+                {
+                    if (usuarioJson.Username == usuario && usuarioJson.Contraseña == contraseña)
+                    {
+                        rol = usuarioJson.Rol;
+                        return true;
+                    }
+                }
+
+                rol = null;
+                return false;
+            }
+
             public void GuardarEnArchivo()
             {
-                // Serializar el usuario a JSON
-                string usuarioJson = Serializacion(this);
+                FechaRegistro = DateTime.Now;
 
-                // Guardar el JSON en un archivo sin sobrescribir (AppendAllText)
-                File.AppendAllText(ArchivoUsuarios, usuarioJson + Environment.NewLine);
+                VerificacionAdminTrial();
+
+                List<User> usuarios;
+
+                try
+                {
+                    string usuariosJson = File.ReadAllText(ArchivoUsuarios);
+                    usuarios = JsonSerializer.Deserialize<List<User>>(usuariosJson);
+                }
+                catch (FileNotFoundException)
+                {
+                    usuarios = new List<User>();
+                }
+
+                usuarios.Add(this);
+
+                string usuariosJsonUpdated = Serializacion(usuarios);
+                File.WriteAllText(ArchivoUsuarios, usuariosJsonUpdated);
+
+                GenerarInformePDF();
+            }
+
+
+            public void GenerarInformePDF()
+            {
+                string filePath = "InformeUsuario.pdf";
+
+                using (var writer = new PdfWriter(filePath))
+                {
+                    using (var pdf = new PdfDocument(writer))
+                    {
+
+                        var document = new Document(pdf);
+                        document.Add(new Paragraph("******* Informe de Usuarios Registrados *******"));
+
+                        foreach (var user in ObtenerUsuariosRegistrados())
+                        {
+                            string mensaje = $"Se registró {user.Nombre} el {user.FechaRegistro:dd/MM/yyyy} a las {user.FechaRegistro:HH:mm:ss}";
+                            document.Add(new Paragraph(mensaje));
+                        }
+
+                    }
+                }
+
+            }
+
+            private List<User> ObtenerUsuariosRegistrados()
+            {
+                try
+                {
+                    string usuariosJson = File.ReadAllText(ArchivoUsuarios);
+                    return JsonSerializer.Deserialize<List<User>>(usuariosJson);
+                }
+                catch (FileNotFoundException)
+                {
+                    return new List<User>();
+                }
+            }
+
+            public void VerificacionAdminTrial()
+            {
+                bool adminExists = UsuarioExiste("UsuarioAdministrador");
+                bool trialExists = UsuarioExiste("UsuarioTrial");
+
+                if (!adminExists || !trialExists)
+                {
+                    List<User> usuarios;
+
+                    try
+                    {
+                        string usuariosJson = File.ReadAllText(ArchivoUsuarios);
+                        usuarios = JsonSerializer.Deserialize<List<User>>(usuariosJson);
+                    }
+                    catch (FileNotFoundException)
+                    {
+                        usuarios = new List<User>();
+                    }
+
+                    if (!adminExists)
+                    {
+                        Admin userAdmin = new Admin();
+                        usuarios.Add(userAdmin);
+                    }
+
+                    if (!trialExists)
+                    {
+                        UserTrial userTrial = new UserTrial();
+                        usuarios.Add(userTrial);
+                    }
+
+                    string usuariosJsonUpdated = Serializacion(usuarios);
+                    File.WriteAllText(ArchivoUsuarios, usuariosJsonUpdated);
+                }
+            }
+
+            public bool UsuarioExiste(string rol)
+            {
+                List<User> usuarios;
+
+                try
+                {
+
+                    string usuariosJson = File.ReadAllText(ArchivoUsuarios);
+                    usuarios = JsonSerializer.Deserialize<List<User>>(usuariosJson);
+                }
+                catch (FileNotFoundException)
+                {
+
+                    return false;
+                }
+
+
+                return usuarios.Any(u => u.Rol == rol);
             }
 
         }
+
 
         // CLASES HEREDADAS DE USER  //
 
         public class UserTrial : User
         {
-            private const string ArchivoUsuarios = "UsuariosDataBase.json";
+
 
             public UserTrial()
                 : base("UserTrial", "trial", "TRIAL", "TRIAL", "TRIAL", "TRIAL", "TRIAL", "TRIAL", "TRIAL")
@@ -104,30 +229,10 @@ namespace BibliotecaClases.Usuarios_Tarjetas
                 Saldo = 500000;
             }
 
-            //CONTRATO//
-            public string Serializacion(User objeto)
-            {
-                return JsonSerializer.Serialize(objeto, new JsonSerializerOptions { WriteIndented = true });
-            }
-
-            public User Deserializacion(string datos)
-            {
-                return JsonSerializer.Deserialize<User>(datos);
-            }
-
-            public void GuardarEnArchivo()
-            {
-                // Serializar el usuario a JSON
-                string usuarioJson = Serializacion(this);
-
-                // Guardar el JSON en un archivo sin sobrescribir (AppendAllText)
-                File.AppendAllText(ArchivoUsuarios, usuarioJson + Environment.NewLine);
-            }
         }
 
         public class Admin : User
         {
-            private const string ArchivoUsuarios = "UsuariosDataBase.json";
 
             public Admin()
                 : base("UserAdmin", "admin", "ADMIN", "ADMIN", "ADMIN", "ADMIN", "ADMIN", "ADMIN", "ADMIN")
@@ -136,26 +241,11 @@ namespace BibliotecaClases.Usuarios_Tarjetas
                 Saldo = 500000;
             }
 
-            //CONTRATO//
-            public string Serializacion(User objeto)
-            {
-                return JsonSerializer.Serialize(objeto, new JsonSerializerOptions { WriteIndented = true });
-            }
-
-            public User Deserializacion(string datos)
-            {
-                return JsonSerializer.Deserialize<User>(datos);
-            }
-
-            public void GuardarEnArchivo()
-            {
-                // Serializar el usuario a JSON
-                string usuarioJson = Serializacion(this);
-
-                // Guardar el JSON en un archivo sin sobrescribir (AppendAllText)
-                File.AppendAllText(ArchivoUsuarios, usuarioJson + Environment.NewLine);
-            }
         }
+
+        //METODOS//
+
+
 
     }
 }

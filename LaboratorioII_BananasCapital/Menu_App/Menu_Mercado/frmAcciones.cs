@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BC_Formularios.Menu_App.Menu_Mercado
 {
-    public partial class frmAdminCuenta : Form
+    public partial class frmAcciones : Form
     {
-        public frmAdminCuenta()
+        public frmAcciones()
         {
             InitializeComponent();
         }

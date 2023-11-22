@@ -31,14 +31,7 @@
             pnTitulo = new Panel();
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
-            label1 = new Label();
-            txtMostrarNombre = new TextBox();
-            label2 = new Label();
-            txtMostrarApellido = new TextBox();
-            label3 = new Label();
-            txtMostrarCorreo = new TextBox();
-            label4 = new Label();
-            txtMostrarNombreUsuario = new TextBox();
+            tittleC = new RichTextBox();
             label5 = new Label();
             txtMostrarResidencia = new TextBox();
             label6 = new Label();
@@ -47,7 +40,14 @@
             txtMostrarCUIL = new TextBox();
             label8 = new Label();
             txtMostrarDNI = new TextBox();
-            tittleC = new RichTextBox();
+            label3 = new Label();
+            txtMostrarCorreo = new TextBox();
+            label4 = new Label();
+            txtMostrarNombreUsuario = new TextBox();
+            label2 = new Label();
+            txtMostrarApellido = new TextBox();
+            label1 = new Label();
+            txtMostrarNombre = new TextBox();
             pnTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
@@ -93,84 +93,20 @@
             panel1.Controls.Add(txtMostrarNombre);
             panel1.Location = new Point(313, -2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(814, 746);
+            panel1.Size = new Size(814, 743);
             panel1.TabIndex = 1;
             // 
-            // label1
+            // tittleC
             // 
-            label1.AutoSize = true;
-            label1.BorderStyle = BorderStyle.FixedSingle;
-            label1.ForeColor = SystemColors.ButtonFace;
-            label1.Location = new Point(143, 188);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(109, 17);
-            label1.TabIndex = 1;
-            label1.Text = "Nombre Completo";
-            // 
-            // txtMostrarNombre
-            // 
-            txtMostrarNombre.Location = new Point(143, 220);
-            txtMostrarNombre.Name = "txtMostrarNombre";
-            txtMostrarNombre.Size = new Size(214, 23);
-            txtMostrarNombre.TabIndex = 9;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BorderStyle = BorderStyle.FixedSingle;
-            label2.ForeColor = SystemColors.ButtonFace;
-            label2.Location = new Point(483, 188);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(53, 17);
-            label2.TabIndex = 10;
-            label2.Text = "Apellido";
-            // 
-            // txtMostrarApellido
-            // 
-            txtMostrarApellido.Location = new Point(483, 220);
-            txtMostrarApellido.Name = "txtMostrarApellido";
-            txtMostrarApellido.Size = new Size(214, 23);
-            txtMostrarApellido.TabIndex = 11;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BorderStyle = BorderStyle.FixedSingle;
-            label3.ForeColor = SystemColors.ButtonFace;
-            label3.Location = new Point(483, 314);
-            label3.Margin = new Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(45, 17);
-            label3.TabIndex = 14;
-            label3.Text = "Correo";
-            // 
-            // txtMostrarCorreo
-            // 
-            txtMostrarCorreo.Location = new Point(483, 346);
-            txtMostrarCorreo.Name = "txtMostrarCorreo";
-            txtMostrarCorreo.Size = new Size(214, 23);
-            txtMostrarCorreo.TabIndex = 15;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.BorderStyle = BorderStyle.FixedSingle;
-            label4.ForeColor = SystemColors.ButtonFace;
-            label4.Location = new Point(143, 314);
-            label4.Margin = new Padding(4, 0, 4, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(96, 17);
-            label4.TabIndex = 12;
-            label4.Text = "Nombre Usuario";
-            // 
-            // txtMostrarNombreUsuario
-            // 
-            txtMostrarNombreUsuario.Location = new Point(143, 346);
-            txtMostrarNombreUsuario.Name = "txtMostrarNombreUsuario";
-            txtMostrarNombreUsuario.Size = new Size(214, 23);
-            txtMostrarNombreUsuario.TabIndex = 13;
+            tittleC.BackColor = Color.FromArgb(55, 55, 100);
+            tittleC.BorderStyle = BorderStyle.None;
+            tittleC.Font = new Font("Segoe UI Black", 20F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            tittleC.ForeColor = Color.Transparent;
+            tittleC.Location = new Point(222, 75);
+            tittleC.Name = "tittleC";
+            tittleC.Size = new Size(370, 48);
+            tittleC.TabIndex = 35;
+            tittleC.Text = "INFORMACION DE CUENTA";
             // 
             // label5
             // 
@@ -248,23 +184,87 @@
             txtMostrarDNI.Size = new Size(214, 23);
             txtMostrarDNI.TabIndex = 17;
             // 
-            // tittleC
+            // label3
             // 
-            tittleC.BackColor = Color.FromArgb(55, 55, 100);
-            tittleC.BorderStyle = BorderStyle.None;
-            tittleC.Font = new Font("Segoe UI Black", 20F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            tittleC.ForeColor = Color.Transparent;
-            tittleC.Location = new Point(222, 75);
-            tittleC.Name = "tittleC";
-            tittleC.Size = new Size(370, 48);
-            tittleC.TabIndex = 35;
-            tittleC.Text = "INFORMACION DE CUENTA";
+            label3.AutoSize = true;
+            label3.BorderStyle = BorderStyle.FixedSingle;
+            label3.ForeColor = SystemColors.ButtonFace;
+            label3.Location = new Point(483, 314);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(45, 17);
+            label3.TabIndex = 14;
+            label3.Text = "Correo";
+            // 
+            // txtMostrarCorreo
+            // 
+            txtMostrarCorreo.Location = new Point(483, 346);
+            txtMostrarCorreo.Name = "txtMostrarCorreo";
+            txtMostrarCorreo.Size = new Size(214, 23);
+            txtMostrarCorreo.TabIndex = 15;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BorderStyle = BorderStyle.FixedSingle;
+            label4.ForeColor = SystemColors.ButtonFace;
+            label4.Location = new Point(143, 314);
+            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(96, 17);
+            label4.TabIndex = 12;
+            label4.Text = "Nombre Usuario";
+            // 
+            // txtMostrarNombreUsuario
+            // 
+            txtMostrarNombreUsuario.Location = new Point(143, 346);
+            txtMostrarNombreUsuario.Name = "txtMostrarNombreUsuario";
+            txtMostrarNombreUsuario.Size = new Size(214, 23);
+            txtMostrarNombreUsuario.TabIndex = 13;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BorderStyle = BorderStyle.FixedSingle;
+            label2.ForeColor = SystemColors.ButtonFace;
+            label2.Location = new Point(483, 188);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(53, 17);
+            label2.TabIndex = 10;
+            label2.Text = "Apellido";
+            // 
+            // txtMostrarApellido
+            // 
+            txtMostrarApellido.Location = new Point(483, 220);
+            txtMostrarApellido.Name = "txtMostrarApellido";
+            txtMostrarApellido.Size = new Size(214, 23);
+            txtMostrarApellido.TabIndex = 11;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BorderStyle = BorderStyle.FixedSingle;
+            label1.ForeColor = SystemColors.ButtonFace;
+            label1.Location = new Point(143, 188);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(109, 17);
+            label1.TabIndex = 1;
+            label1.Text = "Nombre Completo";
+            // 
+            // txtMostrarNombre
+            // 
+            txtMostrarNombre.Location = new Point(143, 220);
+            txtMostrarNombre.Name = "txtMostrarNombre";
+            txtMostrarNombre.Size = new Size(214, 23);
+            txtMostrarNombre.TabIndex = 9;
             // 
             // frmMenuPerfil
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1124, 741);
+            ClientSize = new Size(1124, 683);
             Controls.Add(panel1);
             Controls.Add(pnTitulo);
             MaximizeBox = false;

@@ -10,9 +10,13 @@ namespace BibliotecaClases.Interfaces
     {
         public interface ISerializacion<T>
         {
-            string Serializacion(T objeto);
+            string Serializacion(List<T> objetos);
             T Deserializacion(string datos);
             void GuardarEnArchivo();
+            public void GenerarInformePDF();
+            public void VerificacionAdminTrial();
         }
+
+
     }
 }

@@ -32,12 +32,12 @@ namespace BibliotecaClases.Usuarios_Tarjetas
             public decimal Saldo { get; set; }
 
             //CONTRATO//
-            public string Serializacion(TarjetaDebito objeto)
+            public string Serializacion(List<TarjetaDebito> objetos)
             {
-                var serializador = new XmlSerializer(typeof(TarjetaDebito));
+                var serializador = new XmlSerializer(typeof(List<TarjetaDebito>));
                 using (var writer = new StringWriter())
                 {
-                    serializador.Serialize(writer, objeto);
+                    serializador.Serialize(writer, objetos);
                     return writer.ToString();
                 }
             }
@@ -53,8 +53,19 @@ namespace BibliotecaClases.Usuarios_Tarjetas
 
             public void GuardarEnArchivo()
             {
-                string tarjetaXml = Serializacion(this);
+                List<TarjetaDebito> listaTarjetas = new List<TarjetaDebito> { this };
+                string tarjetaXml = Serializacion(listaTarjetas);
                 File.AppendAllText(ArchivoTarjetas, tarjetaXml + Environment.NewLine);
+            }
+
+            public void GenerarInformePDF()
+            {
+
+            }
+
+            public void VerificacionAdminTrial()
+            {
+
             }
 
         }

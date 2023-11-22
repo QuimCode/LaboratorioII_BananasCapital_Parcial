@@ -4,9 +4,9 @@ namespace BibliotecaClases.Eventos
 {
     public class EventosUsuario
     {
-        
+
         public event EventHandler<ClassUsuarios.User> DatosCapturados;
-        public event EventHandler<ClassUsuarios.User> DatosCapturados2;
+
 
         public ClassUsuarios.User CapturarDatosUsuario(string nombre, string apellido, string dni, string cuit_cuil, string celular,
                                                               string domicilio, string username, string contraseña, string email)
@@ -21,13 +21,14 @@ namespace BibliotecaClases.Eventos
 
         protected virtual void OnDatosCapturados(ClassUsuarios.User usuario)
         {
-            // Verificar si hay suscriptores al evento
             DatosCapturados?.Invoke(this, usuario);
         }
 
-        public void EventDatosCapturados(object sender, ClassUsuarios.User usuario)
+        public void EventosUsuarios(object sender, ClassUsuarios.User usuario)
         {
-            usuario.Serializacion(usuario);
+            List<ClassUsuarios.User> listaUsuarios = new List<ClassUsuarios.User> { usuario };
+
+            string usuariosJson = usuario.Serializacion(listaUsuarios);
             usuario.GuardarEnArchivo();
         }
 
