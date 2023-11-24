@@ -56,8 +56,8 @@ namespace LaboratorioII_BananasCapital
 
             eventosUsuario.CapturarDatosUsuario(nombre, apellido, dni, cuil, celular, domicilio, nombreUsuario, contraseña, correo);
             MostrarDatosSql guardarRegistro = new MostrarDatosSql();
-            guardarRegistro.guardarUsuarios(txtCreacionDNI, txtCreacionCUIL, txtCreacionCelular, txtCreacionDomicilio, txtCreacionUsername,
-                            txtCreacionContraseña, txtCreacionCorreo, txtCreacionNombre, txtCreacionApellido);
+            //guardarRegistro.guardarUsuarios(txtCreacionDNI, txtCreacionCUIL, txtCreacionCelular, txtCreacionDomicilio, txtCreacionUsername,
+            //                txtCreacionContraseña, txtCreacionCorreo, txtCreacionNombre, txtCreacionApellido);
 
             // TEXT´S BOX//
 

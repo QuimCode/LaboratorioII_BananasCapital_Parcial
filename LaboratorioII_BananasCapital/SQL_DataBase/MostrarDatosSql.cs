@@ -11,7 +11,7 @@ namespace BC_Formularios.SQL_DataBase
 {
     public class MostrarDatosSql
     {
-        public void mostrarAlumnos(DataGridView gridInforme)
+        public void mostrarUsuarios(DataGridView gridInforme)
         {
             try
             {
@@ -46,7 +46,7 @@ namespace BC_Formularios.SQL_DataBase
 
                 MySqlCommand comando = new MySqlCommand(consulta, conector.EstableceConexionTest());
                 MySqlDataReader lector = comando.ExecuteReader();
-                MessageBox.Show("Se guardaron correctamente el registro");
+                MessageBox.Show("Se guardaron correctamente en el registro");
 
                 while (lector.Read()) 
                 {
@@ -81,6 +81,18 @@ namespace BC_Formularios.SQL_DataBase
             }
         }
 
+        public void CapturarUsuarios(DataGridView gridUsuarios, TextBox dni)
+        {
+            try
+            {
+                dni.Text = gridUsuarios.CurrentRow.Cells[0].Value.ToString();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("No se logro guardar los datos de la Base de Datos" + e.ToString);
+            }
+        }
+
         public void ModificarUsuarios(TextBox dni, TextBox cuit_cuil, TextBox celular, TextBox domicilio,
             TextBox username, TextBox contraseña, TextBox email, TextBox nombre, TextBox apellido)
         {
@@ -88,21 +100,62 @@ namespace BC_Formularios.SQL_DataBase
             {
                 ConexionDataBaseSql conector = new ConexionDataBaseSql();
 
-                string consulta = "update usuarios set cuit_cuil='" + cuit_cuil.Text + "', celular='" + celular.Text + "', domicilio='" + domicilio.Text + "', username='" + username.Text + "', contraseña='" + contraseña.Text + "', email='" + email.Text + "', nombre='" + nombre.Text + "', apellido='" + apellido.Text + "', WHERE dni = '" + dni.Text + "';";
+                string consulta = "UPDATE usuarios SET cuit_cuil=@cuit_cuil, celular=@celular, domicilio=@domicilio, username=@username, contraseña=@contraseña, email=@email, nombre=@nombre, apellido=@apellido WHERE dni = @dni;";
 
                 MySqlCommand comando = new MySqlCommand(consulta, conector.EstableceConexionTest());
-                MySqlDataReader lector = comando.ExecuteReader();
+
+                comando.Parameters.AddWithValue("@cuit_cuil", cuit_cuil.Text);
+                comando.Parameters.AddWithValue("@celular", celular.Text);
+                comando.Parameters.AddWithValue("@domicilio", domicilio.Text);
+                comando.Parameters.AddWithValue("@username", username.Text);
+                comando.Parameters.AddWithValue("@contraseña", contraseña.Text);
+                comando.Parameters.AddWithValue("@email", email.Text);
+                comando.Parameters.AddWithValue("@nombre", nombre.Text);
+                comando.Parameters.AddWithValue("@apellido", apellido.Text);
+                comando.Parameters.AddWithValue("@dni", dni.Text);
+
+                int filasAfectadas = comando.ExecuteNonQuery();
+
+                //MySqlDataReader lector = comando.ExecuteReader();
                 MessageBox.Show("Se modificaron los usuarios correctamente en el registro");
 
-                while (lector.Read())
-                {
-                }
+                //while (lector.Read())
+                //{
+                //}
 
                 conector.CerrarConexionTest();
             }
             catch (Exception e)
             {
                 MessageBox.Show("No se lograron modificar los datos de la Base de Datos" + e.ToString);
+            }
+        }
+
+        public void EliminarUsuarios(TextBox dni)
+        {
+            try
+            {
+                ConexionDataBaseSql conector = new ConexionDataBaseSql();
+
+                string consulta = "delete from usuarios where dni = @dni;";
+
+                MySqlCommand comando = new MySqlCommand(consulta, conector.EstableceConexionTest());
+                comando.Parameters.AddWithValue("@dni", dni.Text);
+
+                int filasAfectadas = comando.ExecuteNonQuery();
+
+                //MySqlDataReader lector = comando.ExecuteReader();
+                MessageBox.Show("Se elimino los usuarios correctamente en el registro");
+
+                //while (lector.Read())
+                //{
+                //}
+
+                conector.CerrarConexionTest();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("No se logro eliminar al usuario." + e.ToString);
             }
         }
     }

@@ -20,7 +20,7 @@ namespace BC_Formularios.Menu_App.Menu_Administrativo
         private void btnCargarDatos_Click(object sender, EventArgs e)
         {
             SQL_DataBase.MostrarDatosSql mostrarInfo = new SQL_DataBase.MostrarDatosSql();
-            mostrarInfo.mostrarAlumnos(userDataGridView);
+            mostrarInfo.mostrarUsuarios(userDataGridView);
         }
 
         private void btnModificarUsuarios_Click(object sender, EventArgs e)
@@ -34,8 +34,13 @@ namespace BC_Formularios.Menu_App.Menu_Administrativo
         {
             SQL_DataBase.MostrarDatosSql capturarInfo = new SQL_DataBase.MostrarDatosSql();
             capturarInfo.CapturarUsuarios(userDataGridView, txtMostrarDNI, txtMostrarCUIL, txtMostrarTelefono, txtMostrarResidencia,
-                                            txtMostrarNombreUsuario, txtMostrarContraseña, txtMostrarCorreo, txtMostrarNombre,txtMostrarApellido);
+                                            txtMostrarNombreUsuario, txtMostrarContraseña, txtMostrarCorreo, txtMostrarNombre, txtMostrarApellido);
         }
 
+        private void btnGuardarDatos_Click(object sender, EventArgs e)
+        {
+            SQL_DataBase.MostrarDatosSql mostrarInfo = new SQL_DataBase.MostrarDatosSql();
+            mostrarInfo.mostrarUsuarios(userDataGridView);
+        }
     }
 }

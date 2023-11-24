@@ -27,7 +27,6 @@ namespace BibliotecaClases.SQL_DataBase
             {
                 ConexionBD.ConnectionString = conexionDeCadena;
                 ConexionBD.Open();
-                MessageBox.Show("Se ha logrado la conexión");
             }
             catch (MySqlException ex)
             {

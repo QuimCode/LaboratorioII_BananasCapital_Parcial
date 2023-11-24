@@ -36,6 +36,8 @@
             richTextBox1 = new RichTextBox();
             userDataGridView = new DataGridView();
             pnIngreso = new Panel();
+            label9 = new Label();
+            txtMostrarContraseña = new TextBox();
             btnCargarDatos = new Button();
             btnGuardarDatos = new Button();
             label1 = new Label();
@@ -56,8 +58,6 @@
             txtMostrarCUIL = new TextBox();
             txtMostrarCorreo = new TextBox();
             label3 = new Label();
-            txtMostrarContraseña = new TextBox();
-            label9 = new Label();
             pnTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)userDataGridView).BeginInit();
             pnIngreso.SuspendLayout();
@@ -165,6 +165,25 @@
             pnIngreso.Size = new Size(1129, 741);
             pnIngreso.TabIndex = 4;
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.BorderStyle = BorderStyle.FixedSingle;
+            label9.ForeColor = SystemColors.ButtonFace;
+            label9.Location = new Point(910, 517);
+            label9.Margin = new Padding(4, 0, 4, 0);
+            label9.Name = "label9";
+            label9.Size = new Size(69, 17);
+            label9.TabIndex = 43;
+            label9.Text = "Contraseña";
+            // 
+            // txtMostrarContraseña
+            // 
+            txtMostrarContraseña.Location = new Point(986, 517);
+            txtMostrarContraseña.Name = "txtMostrarContraseña";
+            txtMostrarContraseña.Size = new Size(85, 23);
+            txtMostrarContraseña.TabIndex = 42;
+            // 
             // btnCargarDatos
             // 
             btnCargarDatos.FlatStyle = FlatStyle.Flat;
@@ -187,8 +206,9 @@
             btnGuardarDatos.Name = "btnGuardarDatos";
             btnGuardarDatos.Size = new Size(115, 48);
             btnGuardarDatos.TabIndex = 40;
-            btnGuardarDatos.Text = "Guardar Datos Modificados";
+            btnGuardarDatos.Text = "Actualizar Datos";
             btnGuardarDatos.UseVisualStyleBackColor = true;
+            btnGuardarDatos.Click += btnGuardarDatos_Click;
             // 
             // label1
             // 
@@ -225,6 +245,7 @@
             // 
             label8.AutoSize = true;
             label8.BorderStyle = BorderStyle.FixedSingle;
+            label8.Enabled = false;
             label8.ForeColor = SystemColors.ButtonFace;
             label8.Location = new Point(590, 589);
             label8.Margin = new Padding(4, 0, 4, 0);
@@ -254,6 +275,7 @@
             // 
             // txtMostrarDNI
             // 
+            txtMostrarDNI.Enabled = false;
             txtMostrarDNI.Location = new Point(590, 621);
             txtMostrarDNI.Name = "txtMostrarDNI";
             txtMostrarDNI.Size = new Size(214, 23);
@@ -364,26 +386,6 @@
             label3.Size = new Size(45, 17);
             label3.TabIndex = 30;
             label3.Text = "Correo";
-            // 
-            // txtMostrarContraseña
-            // 
-            txtMostrarContraseña.Location = new Point(986, 517);
-            txtMostrarContraseña.Name = "txtMostrarContraseña";
-            txtMostrarContraseña.Size = new Size(85, 23);
-            txtMostrarContraseña.TabIndex = 42;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.BorderStyle = BorderStyle.FixedSingle;
-            label9.ForeColor = SystemColors.ButtonFace;
-            label9.Location = new Point(910, 517);
-            label9.Margin = new Padding(4, 0, 4, 0);
-            label9.Name = "label9";
-            label9.Size = new Size(69, 17);
-            label9.TabIndex = 43;
-            label9.Text = "Contraseña";
-
             // 
             // frmAdminDatos
             // 

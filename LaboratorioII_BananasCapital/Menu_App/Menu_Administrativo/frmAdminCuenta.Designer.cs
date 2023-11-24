@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdminCuenta));
             userDataGridView = new DataGridView();
             pnIngreso = new Panel();
+            label8 = new Label();
+            txtMostrarDNI = new TextBox();
             btnEliminarUsuarios = new Button();
             richTextBox4 = new RichTextBox();
             btnCargaUsuarios = new Button();
@@ -54,10 +56,13 @@
             userDataGridView.RowTemplate.Height = 25;
             userDataGridView.Size = new Size(543, 619);
             userDataGridView.TabIndex = 1;
+            userDataGridView.CellDoubleClick += userDataGridView_CellDoubleClick;
             // 
             // pnIngreso
             // 
             pnIngreso.BackColor = Color.FromArgb(52, 52, 80);
+            pnIngreso.Controls.Add(label8);
+            pnIngreso.Controls.Add(txtMostrarDNI);
             pnIngreso.Controls.Add(btnEliminarUsuarios);
             pnIngreso.Controls.Add(richTextBox4);
             pnIngreso.Controls.Add(btnCargaUsuarios);
@@ -67,6 +72,26 @@
             pnIngreso.Name = "pnIngreso";
             pnIngreso.Size = new Size(1129, 741);
             pnIngreso.TabIndex = 2;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.BorderStyle = BorderStyle.FixedSingle;
+            label8.ForeColor = SystemColors.ButtonFace;
+            label8.Location = new Point(723, 583);
+            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(29, 17);
+            label8.TabIndex = 34;
+            label8.Text = "DNI";
+            // 
+            // txtMostrarDNI
+            // 
+            txtMostrarDNI.Enabled = false;
+            txtMostrarDNI.Location = new Point(723, 615);
+            txtMostrarDNI.Name = "txtMostrarDNI";
+            txtMostrarDNI.Size = new Size(214, 23);
+            txtMostrarDNI.TabIndex = 35;
             // 
             // btnEliminarUsuarios
             // 
@@ -79,6 +104,7 @@
             btnEliminarUsuarios.TabIndex = 27;
             btnEliminarUsuarios.Text = "Eliminar Usuario";
             btnEliminarUsuarios.UseVisualStyleBackColor = true;
+            btnEliminarUsuarios.Click += btnEliminarUsuarios_Click;
             // 
             // richTextBox4
             // 
@@ -184,6 +210,7 @@
             Text = "Menu Administrativo de Cuentas";
             ((System.ComponentModel.ISupportInitialize)userDataGridView).EndInit();
             pnIngreso.ResumeLayout(false);
+            pnIngreso.PerformLayout();
             pnTitulo.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -201,5 +228,7 @@
         private RichTextBox richTextBox4;
         private Button btnCargaUsuarios;
         private Button btnEliminarUsuarios;
+        private Label label8;
+        private TextBox txtMostrarDNI;
     }
 }
