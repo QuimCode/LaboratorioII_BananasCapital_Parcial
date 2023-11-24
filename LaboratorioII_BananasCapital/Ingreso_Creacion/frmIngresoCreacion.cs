@@ -1,6 +1,8 @@
 using BC_Formularios;
 using BibliotecaClases.Eventos;
 using static BibliotecaClases.Usuarios_Tarjetas.ClassUsuarios;
+using static BC_Formularios.SQL_DataBase.MostrarDatosSql;
+using BC_Formularios.SQL_DataBase;
 
 namespace LaboratorioII_BananasCapital
 {
@@ -9,6 +11,10 @@ namespace LaboratorioII_BananasCapital
         //VARIABLE GLOBAL//
         public static string? actualUsuario;
         public static string? actualRol;
+
+        //TIEMPO//
+
+
 
         //INSTANCIA//
         private EventosUsuario eventosUsuario;
@@ -22,6 +28,8 @@ namespace LaboratorioII_BananasCapital
 
         private void btnRegistro_Click(object sender, EventArgs e)
         {
+            DateTime fechaRegistro = DateTime.Now;
+
             List<TextBox> textboxesCrear = this.panel1.Controls.OfType<TextBox>().ToList();
             foreach (TextBox textbox in textboxesCrear)
             {
@@ -47,6 +55,9 @@ namespace LaboratorioII_BananasCapital
             //METODOS// 
 
             eventosUsuario.CapturarDatosUsuario(nombre, apellido, dni, cuil, celular, domicilio, nombreUsuario, contraseña, correo);
+            MostrarDatosSql guardarRegistro = new MostrarDatosSql();
+            guardarRegistro.guardarUsuarios(txtCreacionDNI, txtCreacionCUIL, txtCreacionCelular, txtCreacionDomicilio, txtCreacionUsername,
+                            txtCreacionContraseña, txtCreacionCorreo, txtCreacionNombre, txtCreacionApellido);
 
             // TEXT´S BOX//
 
@@ -61,6 +72,7 @@ namespace LaboratorioII_BananasCapital
             txtCreacionCorreo.Text = "";
 
         }
+
         private void btnIniciarIngreso_Click(object sender, EventArgs e)
         {
             string nombreCuenta = txtNombreUsuario.Text;

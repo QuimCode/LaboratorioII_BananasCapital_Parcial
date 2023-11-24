@@ -55,21 +55,22 @@ namespace BC_Formularios
 
         private void eliminarCuentasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAdminCuenta adminCuent = new frmAdminCuenta();
-            adminCuent.Show();
+            frmAdminCuenta adminCuenta = new frmAdminCuenta();
+            adminCuenta.Show();
+        }
+
+        private void modificarCuentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAdminDatos adminModificarCuenta = new frmAdminDatos();
+            adminModificarCuenta.Show();
         }
 
         private void testSQLToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                // Crear una instancia de la clase que maneja la actualización de la base de datos desde JSON
                 InsertUserJsonSql insertarDatos = new InsertUserJsonSql();
-
-                // Llamar al método que realiza la actualización
                 insertarDatos.ActualizarBaseDeDatosDesdeJson();
-
-                // Mostrar un mensaje indicando que la conexión se ha logrado
                 MessageBox.Show("Se logró la conexión y se actualizó la base de datos desde JSON.");
             }
             catch (Exception ex)

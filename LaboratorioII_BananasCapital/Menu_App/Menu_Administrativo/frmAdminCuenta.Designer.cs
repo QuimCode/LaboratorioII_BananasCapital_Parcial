@@ -30,12 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdminCuenta));
             userDataGridView = new DataGridView();
-            usuarioColumn = new DataGridViewTextBoxColumn();
-            nombreColumn = new DataGridViewTextBoxColumn();
-            apellidoColumn = new DataGridViewTextBoxColumn();
-            correoColum = new DataGridViewTextBoxColumn();
-            deleteColumn = new DataGridViewButtonColumn();
             pnIngreso = new Panel();
+            btnEliminarUsuarios = new Button();
             richTextBox4 = new RichTextBox();
             btnCargaUsuarios = new Button();
             richText = new RichTextBox();
@@ -44,7 +40,6 @@
             richTextBox3 = new RichTextBox();
             tittleB = new RichTextBox();
             richTextBox1 = new RichTextBox();
-            btnEliminarUsuarios = new Button();
             ((System.ComponentModel.ISupportInitialize)userDataGridView).BeginInit();
             pnIngreso.SuspendLayout();
             pnTitulo.SuspendLayout();
@@ -54,39 +49,11 @@
             // 
             userDataGridView.BackgroundColor = Color.FromArgb(55, 55, 95);
             userDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            userDataGridView.Columns.AddRange(new DataGridViewColumn[] { usuarioColumn, nombreColumn, apellidoColumn, correoColum, deleteColumn });
             userDataGridView.Location = new Point(-3, 125);
             userDataGridView.Name = "userDataGridView";
             userDataGridView.RowTemplate.Height = 25;
             userDataGridView.Size = new Size(543, 619);
             userDataGridView.TabIndex = 1;
-            // 
-            // usuarioColumn
-            // 
-            usuarioColumn.HeaderText = "Usuario";
-            usuarioColumn.Name = "usuarioColumn";
-            // 
-            // nombreColumn
-            // 
-            nombreColumn.HeaderText = "Nombre";
-            nombreColumn.Name = "nombreColumn";
-            // 
-            // apellidoColumn
-            // 
-            apellidoColumn.HeaderText = "Apellido";
-            apellidoColumn.Name = "apellidoColumn";
-            // 
-            // correoColum
-            // 
-            correoColum.HeaderText = "Correo";
-            correoColum.Name = "correoColum";
-            // 
-            // deleteColumn
-            // 
-            deleteColumn.HeaderText = "Eliminar";
-            deleteColumn.Name = "deleteColumn";
-            deleteColumn.Text = "Delete User";
-            deleteColumn.UseColumnTextForButtonValue = true;
             // 
             // pnIngreso
             // 
@@ -100,6 +67,18 @@
             pnIngreso.Name = "pnIngreso";
             pnIngreso.Size = new Size(1129, 741);
             pnIngreso.TabIndex = 2;
+            // 
+            // btnEliminarUsuarios
+            // 
+            btnEliminarUsuarios.FlatStyle = FlatStyle.Flat;
+            btnEliminarUsuarios.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEliminarUsuarios.ForeColor = SystemColors.ButtonFace;
+            btnEliminarUsuarios.Location = new Point(850, 480);
+            btnEliminarUsuarios.Name = "btnEliminarUsuarios";
+            btnEliminarUsuarios.Size = new Size(96, 48);
+            btnEliminarUsuarios.TabIndex = 27;
+            btnEliminarUsuarios.Text = "Eliminar Usuario";
+            btnEliminarUsuarios.UseVisualStyleBackColor = true;
             // 
             // richTextBox4
             // 
@@ -194,18 +173,6 @@
             richTextBox1.TabIndex = 31;
             richTextBox1.Text = "BANANAS";
             // 
-            // btnEliminarUsuarios
-            // 
-            btnEliminarUsuarios.FlatStyle = FlatStyle.Flat;
-            btnEliminarUsuarios.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnEliminarUsuarios.ForeColor = SystemColors.ButtonFace;
-            btnEliminarUsuarios.Location = new Point(850, 480);
-            btnEliminarUsuarios.Name = "btnEliminarUsuarios";
-            btnEliminarUsuarios.Size = new Size(96, 48);
-            btnEliminarUsuarios.TabIndex = 27;
-            btnEliminarUsuarios.Text = "Eliminar Usuario";
-            btnEliminarUsuarios.UseVisualStyleBackColor = true;
-            // 
             // frmAdminCuenta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -224,11 +191,6 @@
         #endregion
 
         private DataGridView userDataGridView;
-        private DataGridViewTextBoxColumn usuarioColumn;
-        private DataGridViewTextBoxColumn nombreColumn;
-        private DataGridViewTextBoxColumn apellidoColumn;
-        private DataGridViewTextBoxColumn correoColum;
-        private DataGridViewButtonColumn deleteColumn;
         private Panel pnIngreso;
         private Panel pnTitulo;
         private RichTextBox tittleB;

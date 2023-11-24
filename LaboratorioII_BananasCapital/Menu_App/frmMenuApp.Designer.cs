@@ -174,15 +174,16 @@
             // eliminarCuentasToolStripMenuItem
             // 
             eliminarCuentasToolStripMenuItem.Name = "eliminarCuentasToolStripMenuItem";
-            eliminarCuentasToolStripMenuItem.Size = new Size(171, 22);
+            eliminarCuentasToolStripMenuItem.Size = new Size(180, 22);
             eliminarCuentasToolStripMenuItem.Text = "Eliminar Cuentas";
             eliminarCuentasToolStripMenuItem.Click += eliminarCuentasToolStripMenuItem_Click;
             // 
             // modificarCuentasToolStripMenuItem
             // 
             modificarCuentasToolStripMenuItem.Name = "modificarCuentasToolStripMenuItem";
-            modificarCuentasToolStripMenuItem.Size = new Size(171, 22);
+            modificarCuentasToolStripMenuItem.Size = new Size(180, 22);
             modificarCuentasToolStripMenuItem.Text = "Modificar Cuentas";
+            modificarCuentasToolStripMenuItem.Click += modificarCuentasToolStripMenuItem_Click;
             // 
             // testNuggetToolStripMenuItem
             // 

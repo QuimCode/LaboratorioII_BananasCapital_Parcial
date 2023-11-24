@@ -30,13 +30,15 @@ namespace BC_Formularios.SQL_DataBase
                 {
                     string json = File.ReadAllText(rutaJson);
 
-                    // Deserializar el JSON a una lista de ClassUsuarios.User
+
                     var listaUsuarios = JsonConvert.DeserializeObject<List<ClassUsuarios.User>>(json);
 
-                    // Luego, puedes insertar los datos en la base de datos
                     foreach (var userData in listaUsuarios)
                     {
-                        Insertar(userData);
+                        if (!UsuarioExiste(userData.Username))
+                        {
+                            Insertar(userData);
+                        }
                     }
                 }
                 else
@@ -57,7 +59,6 @@ namespace BC_Formularios.SQL_DataBase
                 if (conexion.State == ConnectionState.Closed)
                     conexion.Open();
 
-                // Supongamos que tienes una tabla 'usuarios' en tu base de datos
                 string query = "INSERT INTO usuarios (DNI, Cuit_Cuil, Celular, Domicilio, Username, Contraseña, Email, CantidadAcciones, FechaRegistro, Nombre, Apellido, Rol, Saldo) " +
                                "VALUES (@DNI, @Cuit_Cuil, @Celular, @Domicilio, @Username, @Contraseña, @Email, @CantidadAcciones, @FechaRegistro, @Nombre, @Apellido, @Rol, @Saldo)";
 
@@ -88,6 +89,7 @@ namespace BC_Formularios.SQL_DataBase
             {
                 if (conexion.State == ConnectionState.Open)
                     conexion.Close();
+                MessageBox.Show("Se logro la conexion junto a la actualizacion de datos, procede a cerrarse ...");
             }
         }
 
@@ -97,17 +99,8 @@ namespace BC_Formularios.SQL_DataBase
 
             try
             {
-                // Crear una instancia de la clase de conexión y establecer la conexión
-                //ConexionDataBaseSql conexionSql = new ConexionDataBaseSql();
-                //conexion = conexionSql.EstableceConexionTest();
-
-                // Crear una instancia de la clase que inserta datos y pasar la conexión
                 InsertUserJsonSql insertarDatos = new InsertUserJsonSql();
-
-                // Llamar al método que inserta datos desde el JSON a la base de datos
                 insertarDatos.InsertarJson();
-
-                MessageBox.Show("Se logro la conexion");
             }
             catch (Exception ex)
             {
@@ -115,8 +108,41 @@ namespace BC_Formularios.SQL_DataBase
             }
             finally
             {
-                // Asegurarse de cerrar la conexión después de usarla
                 if (conexion != null && conexion.State == ConnectionState.Open)
+                    conexion.Close();
+                MessageBox.Show("Se termino la conexion");
+            }
+        }
+
+
+        //METODO VERIFICACION//
+
+        private bool UsuarioExiste(string username)
+        {
+            try
+            {
+                if (conexion.State == ConnectionState.Closed)
+                    conexion.Open();
+
+                string query = "SELECT COUNT(*) FROM usuarios WHERE Username = @Username";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@Username", username);
+
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    return count > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al verificar la existencia del usuario: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
                     conexion.Close();
             }
         }
