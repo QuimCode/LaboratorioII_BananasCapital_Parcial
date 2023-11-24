@@ -60,7 +60,7 @@ namespace BC_Formularios.SQL_DataBase
             }
         }
 
-        public void ModificarUsuarios(DataGridView gridUsuarios, TextBox dni, TextBox cuit_cuil, TextBox celular, TextBox domicilio,
+        public void CapturarUsuarios(DataGridView gridUsuarios, TextBox dni, TextBox cuit_cuil, TextBox celular, TextBox domicilio,
             TextBox username, TextBox contraseña, TextBox email, TextBox nombre, TextBox apellido)
         {
             try
@@ -81,14 +81,14 @@ namespace BC_Formularios.SQL_DataBase
             }
         }
 
-        public void CambiarUsuarios(TextBox dni, TextBox cuit_cuil, TextBox celular, TextBox domicilio,
+        public void ModificarUsuarios(TextBox dni, TextBox cuit_cuil, TextBox celular, TextBox domicilio,
             TextBox username, TextBox contraseña, TextBox email, TextBox nombre, TextBox apellido)
         {
             try
             {
                 ConexionDataBaseSql conector = new ConexionDataBaseSql();
 
-                string consulta = "update usuarios set dni='" + dni.Text + "', cuit_cuil='" + cuit_cuil.Text + "', celular='" + celular.Text + "', domicilio='" + domicilio.Text + "', username='" + username.Text + "', contraseña='" + contraseña.Text + "', email='" + email.Text + "', nombre='" + nombre.Text + "', apellido='" + apellido.Text + "');";
+                string consulta = "update usuarios set cuit_cuil='" + cuit_cuil.Text + "', celular='" + celular.Text + "', domicilio='" + domicilio.Text + "', username='" + username.Text + "', contraseña='" + contraseña.Text + "', email='" + email.Text + "', nombre='" + nombre.Text + "', apellido='" + apellido.Text + "', WHERE dni = '" + dni.Text + "';";
 
                 MySqlCommand comando = new MySqlCommand(consulta, conector.EstableceConexionTest());
                 MySqlDataReader lector = comando.ExecuteReader();

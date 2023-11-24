@@ -383,7 +383,7 @@
             label9.Size = new Size(69, 17);
             label9.TabIndex = 43;
             label9.Text = "Contraseña";
-            label9.TextChanged += Contraseña;
+
             // 
             // frmAdminDatos
             // 
