@@ -36,14 +36,15 @@
             correoColum = new DataGridViewTextBoxColumn();
             deleteColumn = new DataGridViewButtonColumn();
             pnIngreso = new Panel();
+            richTextBox4 = new RichTextBox();
+            btnCargaUsuarios = new Button();
+            richText = new RichTextBox();
             pnTitulo = new Panel();
-            tittleB = new RichTextBox();
-            richTextBox1 = new RichTextBox();
             richTextBox2 = new RichTextBox();
             richTextBox3 = new RichTextBox();
-            richText = new RichTextBox();
-            btnCarga = new Button();
-            richTextBox4 = new RichTextBox();
+            tittleB = new RichTextBox();
+            richTextBox1 = new RichTextBox();
+            btnEliminarUsuarios = new Button();
             ((System.ComponentModel.ISupportInitialize)userDataGridView).BeginInit();
             pnIngreso.SuspendLayout();
             pnTitulo.SuspendLayout();
@@ -90,14 +91,48 @@
             // pnIngreso
             // 
             pnIngreso.BackColor = Color.FromArgb(52, 52, 80);
+            pnIngreso.Controls.Add(btnEliminarUsuarios);
             pnIngreso.Controls.Add(richTextBox4);
-            pnIngreso.Controls.Add(btnCarga);
+            pnIngreso.Controls.Add(btnCargaUsuarios);
             pnIngreso.Controls.Add(richText);
             pnIngreso.Controls.Add(pnTitulo);
             pnIngreso.Location = new Point(-3, -1);
             pnIngreso.Name = "pnIngreso";
             pnIngreso.Size = new Size(1129, 741);
             pnIngreso.TabIndex = 2;
+            // 
+            // richTextBox4
+            // 
+            richTextBox4.BackColor = Color.LemonChiffon;
+            richTextBox4.Font = new Font("Franklin Gothic Medium", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            richTextBox4.Location = new Point(590, 358);
+            richTextBox4.Name = "richTextBox4";
+            richTextBox4.Size = new Size(481, 78);
+            richTextBox4.TabIndex = 26;
+            richTextBox4.Text = "Con el boton de \"Carga Usuario\" abrira un archivo de texto el cual mostrara la cantidad de cuentas que han solicitado la eliminacion de su cuenta.";
+            // 
+            // btnCargaUsuarios
+            // 
+            btnCargaUsuarios.FlatStyle = FlatStyle.Flat;
+            btnCargaUsuarios.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCargaUsuarios.ForeColor = SystemColors.ButtonFace;
+            btnCargaUsuarios.Location = new Point(709, 480);
+            btnCargaUsuarios.Name = "btnCargaUsuarios";
+            btnCargaUsuarios.Size = new Size(96, 48);
+            btnCargaUsuarios.TabIndex = 25;
+            btnCargaUsuarios.Text = "Carga de Usuarios";
+            btnCargaUsuarios.UseVisualStyleBackColor = true;
+            btnCargaUsuarios.Click += btnCargaUsuarios_Click;
+            // 
+            // richText
+            // 
+            richText.BackColor = Color.LemonChiffon;
+            richText.Font = new Font("Franklin Gothic Medium", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            richText.Location = new Point(590, 165);
+            richText.Name = "richText";
+            richText.Size = new Size(481, 153);
+            richText.TabIndex = 4;
+            richText.Text = resources.GetString("richText.Text");
             // 
             // pnTitulo
             // 
@@ -110,30 +145,6 @@
             pnTitulo.Name = "pnTitulo";
             pnTitulo.Size = new Size(1126, 129);
             pnTitulo.TabIndex = 0;
-            // 
-            // tittleB
-            // 
-            tittleB.BackColor = Color.FromArgb(39, 39, 70);
-            tittleB.BorderStyle = BorderStyle.None;
-            tittleB.Font = new Font("Segoe UI Black", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            tittleB.ForeColor = Color.Transparent;
-            tittleB.Location = new Point(219, 22);
-            tittleB.Name = "tittleB";
-            tittleB.Size = new Size(175, 48);
-            tittleB.TabIndex = 32;
-            tittleB.Text = ".CAPITAL";
-            // 
-            // richTextBox1
-            // 
-            richTextBox1.BackColor = Color.FromArgb(39, 39, 70);
-            richTextBox1.BorderStyle = BorderStyle.None;
-            richTextBox1.Font = new Font("Segoe UI Black", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            richTextBox1.ForeColor = Color.Khaki;
-            richTextBox1.Location = new Point(49, 22);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(175, 52);
-            richTextBox1.TabIndex = 31;
-            richTextBox1.Text = "BANANAS";
             // 
             // richTextBox2
             // 
@@ -159,37 +170,41 @@
             richTextBox3.TabIndex = 33;
             richTextBox3.Text = "BANANAS";
             // 
-            // richText
+            // tittleB
             // 
-            richText.BackColor = Color.LemonChiffon;
-            richText.Font = new Font("Franklin Gothic Medium", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            richText.Location = new Point(590, 165);
-            richText.Name = "richText";
-            richText.Size = new Size(481, 153);
-            richText.TabIndex = 4;
-            richText.Text = resources.GetString("richText.Text");
+            tittleB.BackColor = Color.FromArgb(39, 39, 70);
+            tittleB.BorderStyle = BorderStyle.None;
+            tittleB.Font = new Font("Segoe UI Black", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            tittleB.ForeColor = Color.Transparent;
+            tittleB.Location = new Point(219, 22);
+            tittleB.Name = "tittleB";
+            tittleB.Size = new Size(175, 48);
+            tittleB.TabIndex = 32;
+            tittleB.Text = ".CAPITAL";
             // 
-            // btnCarga
+            // richTextBox1
             // 
-            btnCarga.FlatStyle = FlatStyle.Flat;
-            btnCarga.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCarga.ForeColor = SystemColors.ButtonFace;
-            btnCarga.Location = new Point(780, 527);
-            btnCarga.Name = "btnCarga";
-            btnCarga.Size = new Size(96, 75);
-            btnCarga.TabIndex = 25;
-            btnCarga.Text = "Cargar Informe de Eliminacion";
-            btnCarga.UseVisualStyleBackColor = true;
+            richTextBox1.BackColor = Color.FromArgb(39, 39, 70);
+            richTextBox1.BorderStyle = BorderStyle.None;
+            richTextBox1.Font = new Font("Segoe UI Black", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            richTextBox1.ForeColor = Color.Khaki;
+            richTextBox1.Location = new Point(49, 22);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(175, 52);
+            richTextBox1.TabIndex = 31;
+            richTextBox1.Text = "BANANAS";
             // 
-            // richTextBox4
+            // btnEliminarUsuarios
             // 
-            richTextBox4.BackColor = Color.LemonChiffon;
-            richTextBox4.Font = new Font("Franklin Gothic Medium", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            richTextBox4.Location = new Point(590, 397);
-            richTextBox4.Name = "richTextBox4";
-            richTextBox4.Size = new Size(481, 78);
-            richTextBox4.TabIndex = 26;
-            richTextBox4.Text = "Con el boton de \"Carga de informe de Eliminacion\" abrira un archivo de texto el cual mostrara la cantidad de cuentas que han solicitado la eliminacion de su cuenta.";
+            btnEliminarUsuarios.FlatStyle = FlatStyle.Flat;
+            btnEliminarUsuarios.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEliminarUsuarios.ForeColor = SystemColors.ButtonFace;
+            btnEliminarUsuarios.Location = new Point(850, 480);
+            btnEliminarUsuarios.Name = "btnEliminarUsuarios";
+            btnEliminarUsuarios.Size = new Size(96, 48);
+            btnEliminarUsuarios.TabIndex = 27;
+            btnEliminarUsuarios.Text = "Eliminar Usuario";
+            btnEliminarUsuarios.UseVisualStyleBackColor = true;
             // 
             // frmAdminCuenta
             // 
@@ -222,6 +237,7 @@
         private RichTextBox richTextBox2;
         private RichTextBox richTextBox3;
         private RichTextBox richTextBox4;
-        private Button btnCarga;
+        private Button btnCargaUsuarios;
+        private Button btnEliminarUsuarios;
     }
 }

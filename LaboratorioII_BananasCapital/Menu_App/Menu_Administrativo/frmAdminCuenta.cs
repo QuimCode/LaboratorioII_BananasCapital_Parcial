@@ -16,5 +16,11 @@ namespace BC_Formularios.Menu_App.Menu_Administrativo
         {
             InitializeComponent();
         }
+
+        private void btnCargaUsuarios_Click(object sender, EventArgs e)
+        {
+            SQL_DataBase.MostrarDatosSql mostrarInfo = new SQL_DataBase.MostrarDatosSql();
+            mostrarInfo.mostrarAlumnos(userDataGridView);
+        }
     }
 }

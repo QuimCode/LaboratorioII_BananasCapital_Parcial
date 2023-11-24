@@ -75,6 +75,7 @@
             btnRegistro.TabIndex = 47;
             btnRegistro.Text = "Registrar Tarjeta";
             btnRegistro.UseVisualStyleBackColor = true;
+            btnRegistro.Click += btnRegistro_Click;
             // 
             // lbVencimiento
             // 

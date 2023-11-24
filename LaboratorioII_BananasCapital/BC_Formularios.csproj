@@ -13,6 +13,8 @@
     <PackageReference Include="itext7" Version="8.0.2" />
     <PackageReference Include="itext7.bouncy-castle-adapter" Version="8.0.2" />
     <PackageReference Include="itext7.bouncy-castle-fips-adapter" Version="8.0.2" />
+    <PackageReference Include="MySql.Data" Version="8.2.0" />
+    <PackageReference Include="OoplesFinance.YahooFinanceAPI" Version="1.5.0" />
   </ItemGroup>
 
   <ItemGroup>

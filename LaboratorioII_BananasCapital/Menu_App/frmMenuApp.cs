@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BibliotecaClases.SQL_DataBase;
+using BC_Formularios.SQL_DataBase;
 
 namespace BC_Formularios
 {
@@ -56,5 +58,26 @@ namespace BC_Formularios
             frmAdminCuenta adminCuent = new frmAdminCuenta();
             adminCuent.Show();
         }
+
+        private void testSQLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Crear una instancia de la clase que maneja la actualización de la base de datos desde JSON
+                InsertUserJsonSql insertarDatos = new InsertUserJsonSql();
+
+                // Llamar al método que realiza la actualización
+                insertarDatos.ActualizarBaseDeDatosDesdeJson();
+
+                // Mostrar un mensaje indicando que la conexión se ha logrado
+                MessageBox.Show("Se logró la conexión y se actualizó la base de datos desde JSON.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error general: " + ex.Message);
+            }
+        }
+
+
     }
 }

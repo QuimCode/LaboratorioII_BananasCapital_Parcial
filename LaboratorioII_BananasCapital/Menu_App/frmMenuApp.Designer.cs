@@ -93,14 +93,14 @@
             // verCuentaToolStripMenuItem
             // 
             verCuentaToolStripMenuItem.Name = "verCuentaToolStripMenuItem";
-            verCuentaToolStripMenuItem.Size = new Size(180, 22);
+            verCuentaToolStripMenuItem.Size = new Size(158, 22);
             verCuentaToolStripMenuItem.Text = "Ver Cuenta";
             verCuentaToolStripMenuItem.Click += verCuentaToolStripMenuItem_Click;
             // 
             // eliminarCuentaToolStripMenuItem
             // 
             eliminarCuentaToolStripMenuItem.Name = "eliminarCuentaToolStripMenuItem";
-            eliminarCuentaToolStripMenuItem.Size = new Size(180, 22);
+            eliminarCuentaToolStripMenuItem.Size = new Size(158, 22);
             eliminarCuentaToolStripMenuItem.Text = "Eliminar Cuenta";
             // 
             // carteraCuentaToolStripMenuItem
@@ -114,33 +114,33 @@
             // 
             tarjetaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registrarTarjetaToolStripMenuItem, eliminarTarjetaToolStripMenuItem });
             tarjetaToolStripMenuItem.Name = "tarjetaToolStripMenuItem";
-            tarjetaToolStripMenuItem.Size = new Size(180, 22);
+            tarjetaToolStripMenuItem.Size = new Size(162, 22);
             tarjetaToolStripMenuItem.Text = "Tarjeta";
             // 
             // registrarTarjetaToolStripMenuItem
             // 
             registrarTarjetaToolStripMenuItem.Name = "registrarTarjetaToolStripMenuItem";
-            registrarTarjetaToolStripMenuItem.Size = new Size(180, 22);
+            registrarTarjetaToolStripMenuItem.Size = new Size(157, 22);
             registrarTarjetaToolStripMenuItem.Text = "Registrar Tarjeta";
             registrarTarjetaToolStripMenuItem.Click += registrarTarjetaToolStripMenuItem_Click;
             // 
             // eliminarTarjetaToolStripMenuItem
             // 
             eliminarTarjetaToolStripMenuItem.Name = "eliminarTarjetaToolStripMenuItem";
-            eliminarTarjetaToolStripMenuItem.Size = new Size(180, 22);
+            eliminarTarjetaToolStripMenuItem.Size = new Size(157, 22);
             eliminarTarjetaToolStripMenuItem.Text = "Eliminar Tarjeta";
             // 
             // depositarDineroToolStripMenuItem
             // 
             depositarDineroToolStripMenuItem.Name = "depositarDineroToolStripMenuItem";
-            depositarDineroToolStripMenuItem.Size = new Size(180, 22);
+            depositarDineroToolStripMenuItem.Size = new Size(162, 22);
             depositarDineroToolStripMenuItem.Text = "Depositar Dinero";
             depositarDineroToolStripMenuItem.Click += depositarDineroToolStripMenuItem_Click;
             // 
             // retirarDineroToolStripMenuItem
             // 
             retirarDineroToolStripMenuItem.Name = "retirarDineroToolStripMenuItem";
-            retirarDineroToolStripMenuItem.Size = new Size(180, 22);
+            retirarDineroToolStripMenuItem.Size = new Size(162, 22);
             retirarDineroToolStripMenuItem.Text = "Retirar Dinero";
             retirarDineroToolStripMenuItem.Click += retirarDineroToolStripMenuItem_Click;
             // 
@@ -154,7 +154,7 @@
             // accionesToolStripMenuItem
             // 
             accionesToolStripMenuItem.Name = "accionesToolStripMenuItem";
-            accionesToolStripMenuItem.Size = new Size(180, 22);
+            accionesToolStripMenuItem.Size = new Size(129, 22);
             accionesToolStripMenuItem.Text = "Acciones";
             accionesToolStripMenuItem.Click += accionesToolStripMenuItem_Click;
             // 
@@ -174,7 +174,7 @@
             // eliminarCuentasToolStripMenuItem
             // 
             eliminarCuentasToolStripMenuItem.Name = "eliminarCuentasToolStripMenuItem";
-            eliminarCuentasToolStripMenuItem.Size = new Size(180, 22);
+            eliminarCuentasToolStripMenuItem.Size = new Size(171, 22);
             eliminarCuentasToolStripMenuItem.Text = "Eliminar Cuentas";
             eliminarCuentasToolStripMenuItem.Click += eliminarCuentasToolStripMenuItem_Click;
             // 
@@ -195,6 +195,7 @@
             testSQLToolStripMenuItem.Name = "testSQLToolStripMenuItem";
             testSQLToolStripMenuItem.Size = new Size(60, 20);
             testSQLToolStripMenuItem.Text = "TestSQL";
+            testSQLToolStripMenuItem.Click += testSQLToolStripMenuItem_Click;
             // 
             // frmMenuApp
             // 

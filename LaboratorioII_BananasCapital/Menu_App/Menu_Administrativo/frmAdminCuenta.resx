@@ -150,7 +150,7 @@
   <data name="richText.Text" xml:space="preserve">
     <value>Utilizar con cuidado, solo eliminar cuentas que contengan un requisito previo de eliminacion o que infrigieran las normas.
 
-Para eliminar simplemente seleccione al usuario y de un click en "Delete User" para eliminar de la base de datos al usuario selecionado
+Para eliminar simplemente seleccione al usuario y de un click en "Eliminar Usuario" para eliminar de la base de datos al usuario selecionado
 </value>
   </data>
 </root>

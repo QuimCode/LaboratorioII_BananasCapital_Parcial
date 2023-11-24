@@ -21,5 +21,10 @@ namespace BC_Formularios.Menu_App
         {
 
         }
+
+        private void btnRegistro_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
