@@ -49,6 +49,8 @@
             modificarCuentasToolStripMenuItem = new ToolStripMenuItem();
             testNuggetToolStripMenuItem = new ToolStripMenuItem();
             testSQLToolStripMenuItem = new ToolStripMenuItem();
+            eliminarTarjetasToolStripMenuItem = new ToolStripMenuItem();
+            modificarTarjetasToolStripMenuItem = new ToolStripMenuItem();
             panel1.SuspendLayout();
             mnMenu.SuspendLayout();
             SuspendLayout();
@@ -114,33 +116,33 @@
             // 
             tarjetaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registrarTarjetaToolStripMenuItem, eliminarTarjetaToolStripMenuItem });
             tarjetaToolStripMenuItem.Name = "tarjetaToolStripMenuItem";
-            tarjetaToolStripMenuItem.Size = new Size(162, 22);
+            tarjetaToolStripMenuItem.Size = new Size(180, 22);
             tarjetaToolStripMenuItem.Text = "Tarjeta";
             // 
             // registrarTarjetaToolStripMenuItem
             // 
             registrarTarjetaToolStripMenuItem.Name = "registrarTarjetaToolStripMenuItem";
-            registrarTarjetaToolStripMenuItem.Size = new Size(157, 22);
+            registrarTarjetaToolStripMenuItem.Size = new Size(180, 22);
             registrarTarjetaToolStripMenuItem.Text = "Registrar Tarjeta";
             registrarTarjetaToolStripMenuItem.Click += registrarTarjetaToolStripMenuItem_Click;
             // 
             // eliminarTarjetaToolStripMenuItem
             // 
             eliminarTarjetaToolStripMenuItem.Name = "eliminarTarjetaToolStripMenuItem";
-            eliminarTarjetaToolStripMenuItem.Size = new Size(157, 22);
+            eliminarTarjetaToolStripMenuItem.Size = new Size(180, 22);
             eliminarTarjetaToolStripMenuItem.Text = "Eliminar Tarjeta";
             // 
             // depositarDineroToolStripMenuItem
             // 
             depositarDineroToolStripMenuItem.Name = "depositarDineroToolStripMenuItem";
-            depositarDineroToolStripMenuItem.Size = new Size(162, 22);
+            depositarDineroToolStripMenuItem.Size = new Size(180, 22);
             depositarDineroToolStripMenuItem.Text = "Depositar Dinero";
             depositarDineroToolStripMenuItem.Click += depositarDineroToolStripMenuItem_Click;
             // 
             // retirarDineroToolStripMenuItem
             // 
             retirarDineroToolStripMenuItem.Name = "retirarDineroToolStripMenuItem";
-            retirarDineroToolStripMenuItem.Size = new Size(162, 22);
+            retirarDineroToolStripMenuItem.Size = new Size(180, 22);
             retirarDineroToolStripMenuItem.Text = "Retirar Dinero";
             retirarDineroToolStripMenuItem.Click += retirarDineroToolStripMenuItem_Click;
             // 
@@ -154,19 +156,19 @@
             // accionesToolStripMenuItem
             // 
             accionesToolStripMenuItem.Name = "accionesToolStripMenuItem";
-            accionesToolStripMenuItem.Size = new Size(129, 22);
+            accionesToolStripMenuItem.Size = new Size(180, 22);
             accionesToolStripMenuItem.Text = "Acciones";
             accionesToolStripMenuItem.Click += accionesToolStripMenuItem_Click;
             // 
             // dolarMEPToolStripMenuItem
             // 
             dolarMEPToolStripMenuItem.Name = "dolarMEPToolStripMenuItem";
-            dolarMEPToolStripMenuItem.Size = new Size(129, 22);
+            dolarMEPToolStripMenuItem.Size = new Size(180, 22);
             dolarMEPToolStripMenuItem.Text = "Dolar MEP";
             // 
             // administracionToolStripMenuItem
             // 
-            administracionToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { eliminarCuentasToolStripMenuItem, modificarCuentasToolStripMenuItem });
+            administracionToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { eliminarCuentasToolStripMenuItem, modificarCuentasToolStripMenuItem, eliminarTarjetasToolStripMenuItem, modificarTarjetasToolStripMenuItem });
             administracionToolStripMenuItem.Name = "administracionToolStripMenuItem";
             administracionToolStripMenuItem.Size = new Size(100, 20);
             administracionToolStripMenuItem.Text = "Administracion";
@@ -197,6 +199,20 @@
             testSQLToolStripMenuItem.Size = new Size(60, 20);
             testSQLToolStripMenuItem.Text = "TestSQL";
             testSQLToolStripMenuItem.Click += testSQLToolStripMenuItem_Click;
+            // 
+            // eliminarTarjetasToolStripMenuItem
+            // 
+            eliminarTarjetasToolStripMenuItem.Name = "eliminarTarjetasToolStripMenuItem";
+            eliminarTarjetasToolStripMenuItem.Size = new Size(180, 22);
+            eliminarTarjetasToolStripMenuItem.Text = "Eliminar Tarjetas";
+            eliminarTarjetasToolStripMenuItem.Click += eliminarTarjetasToolStripMenuItem_Click;
+            // 
+            // modificarTarjetasToolStripMenuItem
+            // 
+            modificarTarjetasToolStripMenuItem.Name = "modificarTarjetasToolStripMenuItem";
+            modificarTarjetasToolStripMenuItem.Size = new Size(180, 22);
+            modificarTarjetasToolStripMenuItem.Text = "Modificar Tarjetas";
+            modificarTarjetasToolStripMenuItem.Click += modificarTarjetasToolStripMenuItem_Click;
             // 
             // frmMenuApp
             // 
@@ -238,5 +254,7 @@
         private ToolStripMenuItem modificarCuentasToolStripMenuItem;
         private ToolStripMenuItem testNuggetToolStripMenuItem;
         private ToolStripMenuItem testSQLToolStripMenuItem;
+        private ToolStripMenuItem eliminarTarjetasToolStripMenuItem;
+        private ToolStripMenuItem modificarTarjetasToolStripMenuItem;
     }
 }

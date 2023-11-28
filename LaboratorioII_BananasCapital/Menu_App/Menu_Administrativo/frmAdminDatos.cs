@@ -26,14 +26,14 @@ namespace BC_Formularios.Menu_App.Menu_Administrativo
         private void btnModificarUsuarios_Click(object sender, EventArgs e)
         {
             SQL_DataBase.MostrarDatosSql modificarInfo = new SQL_DataBase.MostrarDatosSql();
-            modificarInfo.ModificarUsuarios(txtMostrarDNI, txtMostrarCUIL, txtMostrarTelefono, txtMostrarResidencia,
+            modificarInfo.ModificarUsuarios(txtId, txtMostrarDNI, txtMostrarCUIL, txtMostrarTelefono, txtMostrarResidencia,
                                             txtMostrarNombreUsuario, txtMostrarContraseña, txtMostrarCorreo, txtMostrarNombre, txtMostrarApellido);
         }
 
         private void userDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             SQL_DataBase.MostrarDatosSql capturarInfo = new SQL_DataBase.MostrarDatosSql();
-            capturarInfo.CapturarUsuarios(userDataGridView, txtMostrarDNI, txtMostrarCUIL, txtMostrarTelefono, txtMostrarResidencia,
+            capturarInfo.CapturarUsuarios(userDataGridView, txtId, txtMostrarDNI, txtMostrarCUIL, txtMostrarTelefono, txtMostrarResidencia,
                                             txtMostrarNombreUsuario, txtMostrarContraseña, txtMostrarCorreo, txtMostrarNombre, txtMostrarApellido);
         }
 

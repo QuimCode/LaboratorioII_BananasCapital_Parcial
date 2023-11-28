@@ -1,6 +1,6 @@
 ﻿namespace BC_Formularios.Menu_App.Menu_Administrativo
 {
-    partial class drmAdminTarjeta
+    partial class frmAdminTarjDatos
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(drmAdminTarjeta));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdminTarjDatos));
             tittleB = new RichTextBox();
             richTextBox1 = new RichTextBox();
             pnTitulo = new Panel();
@@ -196,15 +196,15 @@
             txtMostrarID.Size = new Size(214, 23);
             txtMostrarID.TabIndex = 35;
             // 
-            // drmAdminTarjeta
+            // frmAdminTarjDatos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1124, 741);
             Controls.Add(userDataGridView);
             Controls.Add(pnIngreso);
-            Name = "drmAdminTarjeta";
-            Text = "drmAdminTarjeta";
+            Name = "frmAdminTarjDatos";
+            Text = "frmAdminTarjDatos";
             pnTitulo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)userDataGridView).EndInit();
             pnIngreso.ResumeLayout(false);

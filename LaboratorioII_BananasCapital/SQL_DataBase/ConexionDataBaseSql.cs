@@ -14,7 +14,7 @@ namespace BibliotecaClases.SQL_DataBase
         MySqlConnection ConexionBD = new MySqlConnection();
 
         static string servidor = "localhost";
-        static string nombreBD = "usersbananas";
+        static string nombreBD = "bananascapital";
         static string usuario = "root";
         static string contraseña = "S1vw06vf";
         static string puerto = "3306";

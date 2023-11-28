@@ -32,7 +32,7 @@
             userDataGridView = new DataGridView();
             pnIngreso = new Panel();
             label8 = new Label();
-            txtMostrarDNI = new TextBox();
+            txtMostrarID = new TextBox();
             btnEliminarUsuarios = new Button();
             richTextBox4 = new RichTextBox();
             btnCargaUsuarios = new Button();
@@ -51,10 +51,10 @@
             // 
             userDataGridView.BackgroundColor = Color.FromArgb(55, 55, 95);
             userDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            userDataGridView.Location = new Point(-3, 125);
+            userDataGridView.Location = new Point(-3, 349);
             userDataGridView.Name = "userDataGridView";
             userDataGridView.RowTemplate.Height = 25;
-            userDataGridView.Size = new Size(543, 619);
+            userDataGridView.Size = new Size(1126, 391);
             userDataGridView.TabIndex = 1;
             userDataGridView.CellDoubleClick += userDataGridView_CellDoubleClick;
             // 
@@ -62,7 +62,7 @@
             // 
             pnIngreso.BackColor = Color.FromArgb(52, 52, 80);
             pnIngreso.Controls.Add(label8);
-            pnIngreso.Controls.Add(txtMostrarDNI);
+            pnIngreso.Controls.Add(txtMostrarID);
             pnIngreso.Controls.Add(btnEliminarUsuarios);
             pnIngreso.Controls.Add(richTextBox4);
             pnIngreso.Controls.Add(btnCargaUsuarios);
@@ -78,27 +78,27 @@
             label8.AutoSize = true;
             label8.BorderStyle = BorderStyle.FixedSingle;
             label8.ForeColor = SystemColors.ButtonFace;
-            label8.Location = new Point(723, 583);
+            label8.Location = new Point(857, 265);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
-            label8.Size = new Size(29, 17);
+            label8.Size = new Size(20, 17);
             label8.TabIndex = 34;
-            label8.Text = "DNI";
+            label8.Text = "ID";
             // 
-            // txtMostrarDNI
+            // txtMostrarID
             // 
-            txtMostrarDNI.Enabled = false;
-            txtMostrarDNI.Location = new Point(723, 615);
-            txtMostrarDNI.Name = "txtMostrarDNI";
-            txtMostrarDNI.Size = new Size(214, 23);
-            txtMostrarDNI.TabIndex = 35;
+            txtMostrarID.Enabled = false;
+            txtMostrarID.Location = new Point(857, 290);
+            txtMostrarID.Name = "txtMostrarID";
+            txtMostrarID.Size = new Size(214, 23);
+            txtMostrarID.TabIndex = 35;
             // 
             // btnEliminarUsuarios
             // 
             btnEliminarUsuarios.FlatStyle = FlatStyle.Flat;
             btnEliminarUsuarios.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnEliminarUsuarios.ForeColor = SystemColors.ButtonFace;
-            btnEliminarUsuarios.Location = new Point(850, 480);
+            btnEliminarUsuarios.Location = new Point(754, 265);
             btnEliminarUsuarios.Name = "btnEliminarUsuarios";
             btnEliminarUsuarios.Size = new Size(96, 48);
             btnEliminarUsuarios.TabIndex = 27;
@@ -110,7 +110,7 @@
             // 
             richTextBox4.BackColor = Color.LemonChiffon;
             richTextBox4.Font = new Font("Franklin Gothic Medium", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            richTextBox4.Location = new Point(590, 358);
+            richTextBox4.Location = new Point(590, 160);
             richTextBox4.Name = "richTextBox4";
             richTextBox4.Size = new Size(481, 78);
             richTextBox4.TabIndex = 26;
@@ -121,7 +121,7 @@
             btnCargaUsuarios.FlatStyle = FlatStyle.Flat;
             btnCargaUsuarios.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnCargaUsuarios.ForeColor = SystemColors.ButtonFace;
-            btnCargaUsuarios.Location = new Point(709, 480);
+            btnCargaUsuarios.Location = new Point(590, 265);
             btnCargaUsuarios.Name = "btnCargaUsuarios";
             btnCargaUsuarios.Size = new Size(96, 48);
             btnCargaUsuarios.TabIndex = 25;
@@ -133,7 +133,7 @@
             // 
             richText.BackColor = Color.LemonChiffon;
             richText.Font = new Font("Franklin Gothic Medium", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            richText.Location = new Point(590, 165);
+            richText.Location = new Point(31, 160);
             richText.Name = "richText";
             richText.Size = new Size(481, 153);
             richText.TabIndex = 4;
@@ -229,6 +229,6 @@
         private Button btnCargaUsuarios;
         private Button btnEliminarUsuarios;
         private Label label8;
-        private TextBox txtMostrarDNI;
+        private TextBox txtMostrarID;
     }
 }

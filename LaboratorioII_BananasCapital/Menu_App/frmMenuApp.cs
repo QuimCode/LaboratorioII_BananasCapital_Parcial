@@ -1,16 +1,6 @@
 ﻿using BC_Formularios.Menu_App;
 using BC_Formularios.Menu_App.Menu_Administrativo;
 using BC_Formularios.Menu_App.Menu_Mercado;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using BibliotecaClases.SQL_DataBase;
 using BC_Formularios.SQL_DataBase;
 
 namespace BC_Formularios
@@ -65,6 +55,21 @@ namespace BC_Formularios
             adminModificarCuenta.Show();
         }
 
+        //private async void testNuGetToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+
+        //    if (ingresoRol == "UsuarioAdministrador")
+        //    {
+        //        var info = await HolaxD();
+        //        var infoYMedio = info.ToArray()[249];
+        //        var info2 = 1;
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("No tienes permiso para acceder a este formulario.");
+        //    }
+        //}
+
         private void testSQLToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -79,6 +84,14 @@ namespace BC_Formularios
             }
         }
 
+        private void eliminarTarjetasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void modificarTarjetasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

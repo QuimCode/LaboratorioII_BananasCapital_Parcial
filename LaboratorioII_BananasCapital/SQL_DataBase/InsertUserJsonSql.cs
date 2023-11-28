@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Windows.Forms;
+﻿using System.Data;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
-using System.IO;
 using BibliotecaClases.Usuarios_Tarjetas;
 using BibliotecaClases.SQL_DataBase;
 
@@ -59,23 +55,23 @@ namespace BC_Formularios.SQL_DataBase
                 if (conexion.State == ConnectionState.Closed)
                     conexion.Open();
 
-                string query = "INSERT INTO usuarios (DNI, Cuit_Cuil, Celular, Domicilio, Username, Contraseña, Email, CantidadAcciones, FechaRegistro, Nombre, Apellido, Rol, Saldo) " +
-                               "VALUES (@DNI, @Cuit_Cuil, @Celular, @Domicilio, @Username, @Contraseña, @Email, @CantidadAcciones, @FechaRegistro, @Nombre, @Apellido, @Rol, @Saldo)";
+                string query = "INSERT INTO usuariobananas (Nombre, Apellido, Rol, FechaRegistro, Username, Contraseña, Email, DNI, Cuit_Cuil, Celular, Domicilio, CantidadAcciones, Saldo) " +
+                               "VALUES (@Nombre, @Apellido, @Rol, @FechaRegistro, @Username, @Contraseña, @Email, @DNI, @Cuit_Cuil, @Celular, @Domicilio, @CantidadAcciones, @Saldo)";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conexion))
                 {
+                    cmd.Parameters.AddWithValue("@Nombre", userData.Nombre);
+                    cmd.Parameters.AddWithValue("@Apellido", userData.Apellido);
+                    cmd.Parameters.AddWithValue("@Rol", userData.Rol);
+                    cmd.Parameters.AddWithValue("@FechaRegistro", userData.FechaRegistro);
+                    cmd.Parameters.AddWithValue("@Username", userData.Username);
+                    cmd.Parameters.AddWithValue("@Contraseña", userData.Contraseña);
+                    cmd.Parameters.AddWithValue("@Email", userData.Email);
                     cmd.Parameters.AddWithValue("@DNI", userData.DNI);
                     cmd.Parameters.AddWithValue("@Cuit_Cuil", userData.Cuit_Cuil);
                     cmd.Parameters.AddWithValue("@Celular", userData.Celular);
                     cmd.Parameters.AddWithValue("@Domicilio", userData.Domicilio);
-                    cmd.Parameters.AddWithValue("@Username", userData.Username);
-                    cmd.Parameters.AddWithValue("@Contraseña", userData.Contraseña);
-                    cmd.Parameters.AddWithValue("@Email", userData.Email);
                     cmd.Parameters.AddWithValue("@CantidadAcciones", userData.CantidadAcciones);
-                    cmd.Parameters.AddWithValue("@FechaRegistro", userData.FechaRegistro);
-                    cmd.Parameters.AddWithValue("@Nombre", userData.Nombre);
-                    cmd.Parameters.AddWithValue("@Apellido", userData.Apellido);
-                    cmd.Parameters.AddWithValue("@Rol", userData.Rol);
                     cmd.Parameters.AddWithValue("@Saldo", userData.Saldo);
 
                     cmd.ExecuteNonQuery();
@@ -124,7 +120,7 @@ namespace BC_Formularios.SQL_DataBase
                 if (conexion.State == ConnectionState.Closed)
                     conexion.Open();
 
-                string query = "SELECT COUNT(*) FROM usuarios WHERE Username = @Username";
+                string query = "SELECT COUNT(*) FROM usuariobananas WHERE Username = @Username";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conexion))
                 {

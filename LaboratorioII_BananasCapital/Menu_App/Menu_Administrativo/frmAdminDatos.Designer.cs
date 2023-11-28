@@ -36,6 +36,8 @@
             richTextBox1 = new RichTextBox();
             userDataGridView = new DataGridView();
             pnIngreso = new Panel();
+            txtId = new TextBox();
+            lblId = new Label();
             label9 = new Label();
             txtMostrarContraseña = new TextBox();
             btnCargarDatos = new Button();
@@ -127,16 +129,18 @@
             // 
             userDataGridView.BackgroundColor = Color.FromArgb(55, 55, 95);
             userDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            userDataGridView.Location = new Point(-2, 124);
+            userDataGridView.Location = new Point(-2, 450);
             userDataGridView.Name = "userDataGridView";
             userDataGridView.RowTemplate.Height = 25;
-            userDataGridView.Size = new Size(543, 619);
+            userDataGridView.Size = new Size(1126, 293);
             userDataGridView.TabIndex = 3;
             userDataGridView.CellDoubleClick += userDataGridView_CellDoubleClick;
             // 
             // pnIngreso
             // 
             pnIngreso.BackColor = Color.FromArgb(52, 52, 80);
+            pnIngreso.Controls.Add(txtId);
+            pnIngreso.Controls.Add(lblId);
             pnIngreso.Controls.Add(label9);
             pnIngreso.Controls.Add(txtMostrarContraseña);
             pnIngreso.Controls.Add(btnCargarDatos);
@@ -165,12 +169,31 @@
             pnIngreso.Size = new Size(1129, 741);
             pnIngreso.TabIndex = 4;
             // 
+            // txtId
+            // 
+            txtId.Location = new Point(736, 150);
+            txtId.Name = "txtId";
+            txtId.Size = new Size(68, 23);
+            txtId.TabIndex = 45;
+            // 
+            // lblId
+            // 
+            lblId.AutoSize = true;
+            lblId.BorderStyle = BorderStyle.FixedSingle;
+            lblId.ForeColor = SystemColors.ButtonFace;
+            lblId.Location = new Point(709, 153);
+            lblId.Margin = new Padding(4, 0, 4, 0);
+            lblId.Name = "lblId";
+            lblId.Size = new Size(20, 17);
+            lblId.TabIndex = 44;
+            lblId.Text = "ID";
+            // 
             // label9
             // 
             label9.AutoSize = true;
             label9.BorderStyle = BorderStyle.FixedSingle;
             label9.ForeColor = SystemColors.ButtonFace;
-            label9.Location = new Point(910, 517);
+            label9.Location = new Point(709, 224);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
             label9.Size = new Size(69, 17);
@@ -179,9 +202,9 @@
             // 
             // txtMostrarContraseña
             // 
-            txtMostrarContraseña.Location = new Point(986, 517);
+            txtMostrarContraseña.Location = new Point(709, 256);
             txtMostrarContraseña.Name = "txtMostrarContraseña";
-            txtMostrarContraseña.Size = new Size(85, 23);
+            txtMostrarContraseña.Size = new Size(95, 23);
             txtMostrarContraseña.TabIndex = 42;
             // 
             // btnCargarDatos
@@ -189,7 +212,7 @@
             btnCargarDatos.FlatStyle = FlatStyle.Flat;
             btnCargarDatos.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnCargarDatos.ForeColor = SystemColors.ButtonFace;
-            btnCargarDatos.Location = new Point(625, 349);
+            btnCargarDatos.Location = new Point(49, 357);
             btnCargarDatos.Name = "btnCargarDatos";
             btnCargarDatos.Size = new Size(115, 48);
             btnCargarDatos.TabIndex = 41;
@@ -202,7 +225,7 @@
             btnGuardarDatos.FlatStyle = FlatStyle.Flat;
             btnGuardarDatos.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnGuardarDatos.ForeColor = SystemColors.ButtonFace;
-            btnGuardarDatos.Location = new Point(924, 349);
+            btnGuardarDatos.Location = new Point(369, 357);
             btnGuardarDatos.Name = "btnGuardarDatos";
             btnGuardarDatos.Size = new Size(115, 48);
             btnGuardarDatos.TabIndex = 40;
@@ -215,7 +238,7 @@
             label1.AutoSize = true;
             label1.BorderStyle = BorderStyle.FixedSingle;
             label1.ForeColor = SystemColors.ButtonFace;
-            label1.Location = new Point(590, 446);
+            label1.Location = new Point(590, 153);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(109, 17);
@@ -227,7 +250,7 @@
             label4.AutoSize = true;
             label4.BorderStyle = BorderStyle.FixedSingle;
             label4.ForeColor = SystemColors.ButtonFace;
-            label4.Location = new Point(590, 517);
+            label4.Location = new Point(590, 224);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(96, 17);
@@ -236,7 +259,7 @@
             // 
             // txtMostrarNombre
             // 
-            txtMostrarNombre.Location = new Point(590, 478);
+            txtMostrarNombre.Location = new Point(590, 185);
             txtMostrarNombre.Name = "txtMostrarNombre";
             txtMostrarNombre.Size = new Size(214, 23);
             txtMostrarNombre.TabIndex = 25;
@@ -247,7 +270,7 @@
             label8.BorderStyle = BorderStyle.FixedSingle;
             label8.Enabled = false;
             label8.ForeColor = SystemColors.ButtonFace;
-            label8.Location = new Point(590, 589);
+            label8.Location = new Point(590, 296);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
             label8.Size = new Size(29, 17);
@@ -256,9 +279,9 @@
             // 
             // txtMostrarNombreUsuario
             // 
-            txtMostrarNombreUsuario.Location = new Point(590, 549);
+            txtMostrarNombreUsuario.Location = new Point(590, 256);
             txtMostrarNombreUsuario.Name = "txtMostrarNombreUsuario";
-            txtMostrarNombreUsuario.Size = new Size(214, 23);
+            txtMostrarNombreUsuario.Size = new Size(96, 23);
             txtMostrarNombreUsuario.TabIndex = 29;
             // 
             // label6
@@ -266,7 +289,7 @@
             label6.AutoSize = true;
             label6.BorderStyle = BorderStyle.FixedSingle;
             label6.ForeColor = SystemColors.ButtonFace;
-            label6.Location = new Point(590, 667);
+            label6.Location = new Point(590, 374);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
             label6.Size = new Size(54, 17);
@@ -276,7 +299,7 @@
             // txtMostrarDNI
             // 
             txtMostrarDNI.Enabled = false;
-            txtMostrarDNI.Location = new Point(590, 621);
+            txtMostrarDNI.Location = new Point(590, 328);
             txtMostrarDNI.Name = "txtMostrarDNI";
             txtMostrarDNI.Size = new Size(214, 23);
             txtMostrarDNI.TabIndex = 33;
@@ -286,7 +309,7 @@
             label5.AutoSize = true;
             label5.BorderStyle = BorderStyle.FixedSingle;
             label5.ForeColor = SystemColors.ButtonFace;
-            label5.Location = new Point(857, 667);
+            label5.Location = new Point(857, 374);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(65, 17);
@@ -295,7 +318,7 @@
             // 
             // txtMostrarTelefono
             // 
-            txtMostrarTelefono.Location = new Point(590, 699);
+            txtMostrarTelefono.Location = new Point(590, 406);
             txtMostrarTelefono.Name = "txtMostrarTelefono";
             txtMostrarTelefono.Size = new Size(214, 23);
             txtMostrarTelefono.TabIndex = 37;
@@ -305,7 +328,7 @@
             btnModificarUsuarios.FlatStyle = FlatStyle.Flat;
             btnModificarUsuarios.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnModificarUsuarios.ForeColor = SystemColors.ButtonFace;
-            btnModificarUsuarios.Location = new Point(776, 349);
+            btnModificarUsuarios.Location = new Point(210, 357);
             btnModificarUsuarios.Name = "btnModificarUsuarios";
             btnModificarUsuarios.Size = new Size(115, 48);
             btnModificarUsuarios.TabIndex = 25;
@@ -315,7 +338,7 @@
             // 
             // txtMostrarResidencia
             // 
-            txtMostrarResidencia.Location = new Point(857, 699);
+            txtMostrarResidencia.Location = new Point(857, 406);
             txtMostrarResidencia.Name = "txtMostrarResidencia";
             txtMostrarResidencia.Size = new Size(214, 23);
             txtMostrarResidencia.TabIndex = 39;
@@ -324,7 +347,7 @@
             // 
             richText.BackColor = Color.LemonChiffon;
             richText.Font = new Font("Franklin Gothic Medium", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            richText.Location = new Point(590, 165);
+            richText.Location = new Point(30, 160);
             richText.Name = "richText";
             richText.Size = new Size(481, 153);
             richText.TabIndex = 4;
@@ -332,7 +355,7 @@
             // 
             // txtMostrarApellido
             // 
-            txtMostrarApellido.Location = new Point(857, 478);
+            txtMostrarApellido.Location = new Point(857, 185);
             txtMostrarApellido.Name = "txtMostrarApellido";
             txtMostrarApellido.Size = new Size(214, 23);
             txtMostrarApellido.TabIndex = 27;
@@ -342,7 +365,7 @@
             label7.AutoSize = true;
             label7.BorderStyle = BorderStyle.FixedSingle;
             label7.ForeColor = SystemColors.ButtonFace;
-            label7.Location = new Point(857, 589);
+            label7.Location = new Point(857, 296);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new Size(34, 17);
@@ -354,7 +377,7 @@
             label2.AutoSize = true;
             label2.BorderStyle = BorderStyle.FixedSingle;
             label2.ForeColor = SystemColors.ButtonFace;
-            label2.Location = new Point(857, 444);
+            label2.Location = new Point(857, 151);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(53, 17);
@@ -363,14 +386,14 @@
             // 
             // txtMostrarCUIL
             // 
-            txtMostrarCUIL.Location = new Point(857, 621);
+            txtMostrarCUIL.Location = new Point(857, 328);
             txtMostrarCUIL.Name = "txtMostrarCUIL";
             txtMostrarCUIL.Size = new Size(214, 23);
             txtMostrarCUIL.TabIndex = 35;
             // 
             // txtMostrarCorreo
             // 
-            txtMostrarCorreo.Location = new Point(857, 549);
+            txtMostrarCorreo.Location = new Point(857, 256);
             txtMostrarCorreo.Name = "txtMostrarCorreo";
             txtMostrarCorreo.Size = new Size(214, 23);
             txtMostrarCorreo.TabIndex = 31;
@@ -380,7 +403,7 @@
             label3.AutoSize = true;
             label3.BorderStyle = BorderStyle.FixedSingle;
             label3.ForeColor = SystemColors.ButtonFace;
-            label3.Location = new Point(857, 517);
+            label3.Location = new Point(857, 224);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(45, 17);
@@ -434,5 +457,7 @@
         private Button btnCargarDatos;
         private Label label9;
         private TextBox txtMostrarContraseña;
+        private Label lblId;
+        private TextBox txtId;
     }
 }

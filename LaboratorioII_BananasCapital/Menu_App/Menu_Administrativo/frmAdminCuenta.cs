@@ -26,7 +26,7 @@ namespace BC_Formularios.Menu_App.Menu_Administrativo
         private void btnEliminarUsuarios_Click(object sender, EventArgs e)
         {
             SQL_DataBase.MostrarDatosSql eliminar = new SQL_DataBase.MostrarDatosSql();
-            eliminar.EliminarUsuarios(txtMostrarDNI);
+            eliminar.EliminarUsuarios(txtMostrarID);
             SQL_DataBase.MostrarDatosSql mostrarInfo = new SQL_DataBase.MostrarDatosSql();
             mostrarInfo.mostrarUsuarios(userDataGridView);
         }
@@ -34,7 +34,7 @@ namespace BC_Formularios.Menu_App.Menu_Administrativo
         private void userDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             SQL_DataBase.MostrarDatosSql capturarEliminacion = new SQL_DataBase.MostrarDatosSql();
-            capturarEliminacion.CapturarUsuarios(userDataGridView, txtMostrarDNI);
+            capturarEliminacion.CapturarUsuarios(userDataGridView, txtMostrarID);
         }
     }
 }

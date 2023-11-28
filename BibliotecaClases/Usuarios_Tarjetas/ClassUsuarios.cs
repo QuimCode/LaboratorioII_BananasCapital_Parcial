@@ -26,33 +26,31 @@ namespace BibliotecaClases.Usuarios_Tarjetas
             private const string ArchivoUsuarios = "UsuariosDataBase.json";
 
             //ATRIBUTOS//
-
+            public DateTime FechaRegistro { get; set; }
+            public string Username { get; set; }
+            public string Contraseña { get; set; }
+            public string Email { get; set; }
             public string DNI { get; set; }
             public string Cuit_Cuil { get; set; }
             public string Celular { get; set; }
             public string Domicilio { get; set; }
-            public string Username { get; set; }
-            public string Contraseña { get; set; }
-            public string Email { get; set; }
             public int CantidadAcciones { get; set; } = 0;
-            public DateTime FechaRegistro { get; set; }
 
             //CONSTRUCTOR//
-
-            public User(string nombreU, string apellidoU, string dniU, string cuit_cuilU, string celularU, string domicilioU,
-             string usernameU, string contraseñaU, string emailU)
+            public User(string nombreU, string apellidoU, string usernameU, string contraseñaU, string emailU,
+                        string dniU, string cuit_cuilU, string celularU, string domicilioU)
             {
                 Nombre = nombreU;
                 Apellido = apellidoU;
+                Rol = "Usuario";
+                Username = usernameU;
+                Contraseña = contraseñaU;
+                Email = emailU;
                 DNI = dniU;
                 Cuit_Cuil = cuit_cuilU;
                 Celular = celularU;
                 Domicilio = domicilioU;
-                Username = usernameU;
-                Contraseña = contraseñaU;
-                Email = emailU;
                 Saldo = 0;
-                Rol = "Usuario";
             }
 
             public User()
@@ -69,8 +67,26 @@ namespace BibliotecaClases.Usuarios_Tarjetas
                     Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping
                 };
 
-                return JsonSerializer.Serialize(objetos, opcionesSerializacion);
+                var usuariosOrdenados = objetos.Select(u => new
+                {
+                    u.Nombre,
+                    u.Apellido,
+                    u.Rol,
+                    u.FechaRegistro,
+                    u.Username,
+                    u.Contraseña,
+                    u.Email,
+                    u.DNI,
+                    u.Cuit_Cuil,
+                    u.Celular,
+                    u.Domicilio,
+                    u.CantidadAcciones,
+                    u.Saldo
+                }).ToList();
+
+                return JsonSerializer.Serialize(usuariosOrdenados, opcionesSerializacion);
             }
+
 
             public User Deserializacion(string datos)
             {
@@ -117,31 +133,39 @@ namespace BibliotecaClases.Usuarios_Tarjetas
                 string usuariosJsonUpdated = Serializacion(usuarios);
                 File.WriteAllText(ArchivoUsuarios, usuariosJsonUpdated);
 
-                GenerarInformePDF();
+                Task.Run(() => GenerarInformePDF());
             }
 
 
-            public void GenerarInformePDF()
+            public async Task GenerarInformePDF()
             {
-                string filePath = "InformeUsuario.pdf";
-
-                using (var writer = new PdfWriter(filePath))
+                await Task.Run(() =>
                 {
-                    using (var pdf = new PdfDocument(writer))
+                    string filePath = "InformeUsuario.pdf";
+
+                    using (var writer = new PdfWriter(filePath))
+                    {
+                        using (var pdf = new PdfDocument(writer))
+                        {
+
+                            var document = new Document(pdf);
+                            document.Add(new Paragraph("******* Informe de Usuarios Registrados *******"));
+
+                            foreach (var user in ObtenerUsuariosRegistrados())
+                            {
+                                string mensaje = $"Se registró {user.Nombre} el {user.FechaRegistro:dd/MM/yyyy} a las {user.FechaRegistro:HH:mm:ss}";
+                                document.Add(new Paragraph(mensaje));
+                            }
+
+                        }
+                    }
+                    Thread.Sleep(10000);
+
                     {
 
-                        var document = new Document(pdf);
-                        document.Add(new Paragraph("******* Informe de Usuarios Registrados *******"));
-
-                        foreach (var user in ObtenerUsuariosRegistrados())
-                        {
-                            string mensaje = $"Se registró {user.Nombre} el {user.FechaRegistro:dd/MM/yyyy} a las {user.FechaRegistro:HH:mm:ss}";
-                            document.Add(new Paragraph(mensaje));
-                        }
-
                     }
-                }
 
+                });
             }
 
             private List<User> ObtenerUsuariosRegistrados()

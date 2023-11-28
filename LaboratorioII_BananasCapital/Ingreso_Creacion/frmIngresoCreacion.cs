@@ -1,8 +1,6 @@
 using BC_Formularios;
 using BibliotecaClases.Eventos;
 using static BibliotecaClases.Usuarios_Tarjetas.ClassUsuarios;
-using static BC_Formularios.SQL_DataBase.MostrarDatosSql;
-using BC_Formularios.SQL_DataBase;
 
 namespace LaboratorioII_BananasCapital
 {
@@ -12,18 +10,16 @@ namespace LaboratorioII_BananasCapital
         public static string? actualUsuario;
         public static string? actualRol;
 
-        //TIEMPO//
-
-
-
         //INSTANCIA//
         private EventosUsuario eventosUsuario;
 
+        //EVENTO ACCION// 
+        //public event Action<string> UsuarioLogueado;
+
+        //EVENTOS FORMS//
         public frmIngresoCreacion()
         {
             InitializeComponent();
-            eventosUsuario = new EventosUsuario();
-            eventosUsuario.DatosCapturados += eventosUsuario.EventosUsuarios;
         }
 
         private void btnRegistro_Click(object sender, EventArgs e)
@@ -40,6 +36,10 @@ namespace LaboratorioII_BananasCapital
                 }
             }
 
+            //EVENTO CAPTURA//
+            eventosUsuario = new EventosUsuario();
+            eventosUsuario.DatosCapturados += eventosUsuario.EventosUsuarios;
+
             // TEXT´S BOX//
 
             string nombre = txtCreacionNombre.Text;
@@ -55,9 +55,10 @@ namespace LaboratorioII_BananasCapital
             //METODOS// 
 
             eventosUsuario.CapturarDatosUsuario(nombre, apellido, dni, cuil, celular, domicilio, nombreUsuario, contraseña, correo);
-            MostrarDatosSql guardarRegistro = new MostrarDatosSql();
-            //guardarRegistro.guardarUsuarios(txtCreacionDNI, txtCreacionCUIL, txtCreacionCelular, txtCreacionDomicilio, txtCreacionUsername,
-            //                txtCreacionContraseña, txtCreacionCorreo, txtCreacionNombre, txtCreacionApellido);
+            //MostrarDatosSql guardarRegistro = new MostrarDatosSql();
+
+            //actualUsuario = nuevoUsuario.Username;
+            //UsuarioRegistrado?.Invoke(actualUsuario);
 
             // TEXT´S BOX//
 
@@ -79,6 +80,9 @@ namespace LaboratorioII_BananasCapital
             string contraseñaCuenta = txtContraseña.Text;
             string rol;
 
+            actualUsuario = nombreCuenta;
+            //UsuarioLogueado?.Invoke(actualUsuario);
+
             User usuario = new();
             if(usuario.Deserializacion(nombreCuenta, contraseñaCuenta, out rol))
             {
@@ -92,7 +96,6 @@ namespace LaboratorioII_BananasCapital
 
 
         }
-
 
         private void btnIniciarAdmin_Click(object sender, EventArgs e)
         {
@@ -122,3 +125,6 @@ namespace LaboratorioII_BananasCapital
 
     }
 }
+
+//guardarRegistro.guardarUsuarios(txtCreacionDNI, txtCreacionCUIL, txtCreacionCelular, txtCreacionDomicilio, txtCreacionUsername,
+//                txtCreacionContraseña, txtCreacionCorreo, txtCreacionNombre, txtCreacionApellido);
