@@ -98,7 +98,7 @@
             btnEliminarUsuarios.FlatStyle = FlatStyle.Flat;
             btnEliminarUsuarios.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnEliminarUsuarios.ForeColor = SystemColors.ButtonFace;
-            btnEliminarUsuarios.Location = new Point(754, 265);
+            btnEliminarUsuarios.Location = new Point(728, 265);
             btnEliminarUsuarios.Name = "btnEliminarUsuarios";
             btnEliminarUsuarios.Size = new Size(96, 48);
             btnEliminarUsuarios.TabIndex = 27;

@@ -15,6 +15,9 @@ namespace BC_Formularios.Menu_App.Menu_Mercado
         public frmAcciones()
         {
             InitializeComponent();
+
+            SQL_DataBase.InsertUserJsonSql insertarInfo = new SQL_DataBase.InsertUserJsonSql();
+            insertarInfo.ActualizarBaseDeDatosDesdeSql(dataGridViewAcciones);
         }
     }
 }

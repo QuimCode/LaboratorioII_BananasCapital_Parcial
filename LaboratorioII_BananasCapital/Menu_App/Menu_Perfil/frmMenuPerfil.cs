@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LaboratorioII_BananasCapital;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,15 @@ namespace BC_Formularios
 {
     public partial class frmMenuPerfil : Form
     {
+        string usuarioOperario = frmIngresoCreacion.actualUsuario;
+
         public frmMenuPerfil()
         {
             InitializeComponent();
+            SQL_DataBase.InsertUserJsonSql selectData = new SQL_DataBase.InsertUserJsonSql();
+            selectData.ObtenerUsuarioPorUsername(usuarioOperario);
+
+
         }
     }
 }

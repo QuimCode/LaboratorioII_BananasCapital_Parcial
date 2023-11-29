@@ -70,18 +70,12 @@ namespace BC_Formularios.Menu_App
                 int codigoTarjeta = int.Parse(txtCCV.Text);
                 DateTime fechaVencimiento = DateTime.ParseExact(txtVencimiento.Text, "MM/yyyy", CultureInfo.InvariantCulture);
 
-                // Crear una nueva instancia de TarjetaDebito
                 ClassTarjetaDebito.TarjetaDebito nuevaTarjeta = new ClassTarjetaDebito.TarjetaDebito(nombreApellido, usuarioOperario, numerosTarjeta, codigoTarjeta, fechaVencimiento);
-
-                // Guardar la tarjeta en el archivo XML
                 nuevaTarjeta.GuardarEnArchivo();
-
-                // Opcional: Puedes realizar otras acciones después de guardar la tarjeta, como mostrar un mensaje de éxito.
                 MessageBox.Show("Tarjeta registrada correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                // Manejar cualquier excepción que pueda ocurrir durante el proceso de registro.
                 MessageBox.Show($"Error al registrar la tarjeta: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

@@ -30,32 +30,22 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAcciones));
             pnIngreso = new Panel();
-            richTextBox4 = new RichTextBox();
-            btnCarga = new Button();
+            dataGridViewAcciones = new DataGridView();
             richText = new RichTextBox();
             pnTitulo = new Panel();
             richTextBox2 = new RichTextBox();
             richTextBox3 = new RichTextBox();
             tittleB = new RichTextBox();
             richTextBox1 = new RichTextBox();
-            dataGridViewAcciones = new DataGridView();
-            nombreColumn = new DataGridViewTextBoxColumn();
-            altaColumn = new DataGridViewTextBoxColumn();
-            bajaColumn = new DataGridViewTextBoxColumn();
-            cantidadColumn = new DataGridViewTextBoxColumn();
-            venderColumn = new DataGridViewButtonColumn();
-            comprarColumn = new DataGridViewButtonColumn();
             pnIngreso.SuspendLayout();
-            pnTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewAcciones).BeginInit();
+            pnTitulo.SuspendLayout();
             SuspendLayout();
             // 
             // pnIngreso
             // 
             pnIngreso.BackColor = Color.FromArgb(52, 52, 80);
             pnIngreso.Controls.Add(dataGridViewAcciones);
-            pnIngreso.Controls.Add(richTextBox4);
-            pnIngreso.Controls.Add(btnCarga);
             pnIngreso.Controls.Add(richText);
             pnIngreso.Controls.Add(pnTitulo);
             pnIngreso.Location = new Point(-2, 0);
@@ -63,27 +53,15 @@
             pnIngreso.Size = new Size(1129, 741);
             pnIngreso.TabIndex = 3;
             // 
-            // richTextBox4
+            // dataGridViewAcciones
             // 
-            richTextBox4.BackColor = Color.LemonChiffon;
-            richTextBox4.Font = new Font("Franklin Gothic Medium", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            richTextBox4.Location = new Point(685, 419);
-            richTextBox4.Name = "richTextBox4";
-            richTextBox4.Size = new Size(386, 107);
-            richTextBox4.TabIndex = 26;
-            richTextBox4.Text = "Con el boton de \"Carga de informe de Eliminacion\" abrira un archivo de texto el cual mostrara la cantidad de cuentas que han solicitado la eliminacion de su cuenta.";
-            // 
-            // btnCarga
-            // 
-            btnCarga.FlatStyle = FlatStyle.Flat;
-            btnCarga.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCarga.ForeColor = SystemColors.ButtonFace;
-            btnCarga.Location = new Point(837, 582);
-            btnCarga.Name = "btnCarga";
-            btnCarga.Size = new Size(96, 75);
-            btnCarga.TabIndex = 25;
-            btnCarga.Text = "Cargar Informe de Eliminacion";
-            btnCarga.UseVisualStyleBackColor = true;
+            dataGridViewAcciones.BackgroundColor = Color.FromArgb(55, 55, 95);
+            dataGridViewAcciones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewAcciones.Location = new Point(3, 125);
+            dataGridViewAcciones.Name = "dataGridViewAcciones";
+            dataGridViewAcciones.RowTemplate.Height = 25;
+            dataGridViewAcciones.Size = new Size(643, 616);
+            dataGridViewAcciones.TabIndex = 27;
             // 
             // richText
             // 
@@ -155,55 +133,6 @@
             richTextBox1.TabIndex = 31;
             richTextBox1.Text = "BANANAS";
             // 
-            // dataGridViewAcciones
-            // 
-            dataGridViewAcciones.BackgroundColor = Color.FromArgb(55, 55, 95);
-            dataGridViewAcciones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewAcciones.Columns.AddRange(new DataGridViewColumn[] { nombreColumn, altaColumn, bajaColumn, cantidadColumn, venderColumn, comprarColumn });
-            dataGridViewAcciones.Location = new Point(3, 125);
-            dataGridViewAcciones.Name = "dataGridViewAcciones";
-            dataGridViewAcciones.RowTemplate.Height = 25;
-            dataGridViewAcciones.Size = new Size(643, 616);
-            dataGridViewAcciones.TabIndex = 27;
-            // 
-            // nombreColumn
-            // 
-            nombreColumn.HeaderText = "Nombre Accion";
-            nombreColumn.Name = "nombreColumn";
-            // 
-            // altaColumn
-            // 
-            altaColumn.HeaderText = "Precio a Alta";
-            altaColumn.Name = "altaColumn";
-            // 
-            // bajaColumn
-            // 
-            bajaColumn.HeaderText = "Precio a Baja ";
-            bajaColumn.Name = "bajaColumn";
-            // 
-            // cantidadColumn
-            // 
-            cantidadColumn.HeaderText = "Cantidad Accion";
-            cantidadColumn.Name = "cantidadColumn";
-            // 
-            // venderColumn
-            // 
-            venderColumn.HeaderText = "Vender";
-            venderColumn.Name = "venderColumn";
-            venderColumn.Resizable = DataGridViewTriState.True;
-            venderColumn.SortMode = DataGridViewColumnSortMode.Automatic;
-            venderColumn.Text = "Vender";
-            venderColumn.UseColumnTextForButtonValue = true;
-            // 
-            // comprarColumn
-            // 
-            comprarColumn.HeaderText = "Comprar";
-            comprarColumn.Name = "comprarColumn";
-            comprarColumn.Resizable = DataGridViewTriState.True;
-            comprarColumn.SortMode = DataGridViewColumnSortMode.Automatic;
-            comprarColumn.Text = "Comprar";
-            comprarColumn.UseColumnTextForButtonValue = true;
-            // 
             // frmAcciones
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -213,16 +142,14 @@
             Name = "frmAcciones";
             Text = "frmAcciones";
             pnIngreso.ResumeLayout(false);
-            pnTitulo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewAcciones).EndInit();
+            pnTitulo.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel pnIngreso;
-        private RichTextBox richTextBox4;
-        private Button btnCarga;
         private RichTextBox richText;
         private Panel pnTitulo;
         private RichTextBox richTextBox2;
@@ -230,11 +157,5 @@
         private RichTextBox tittleB;
         private RichTextBox richTextBox1;
         private DataGridView dataGridViewAcciones;
-        private DataGridViewTextBoxColumn nombreColumn;
-        private DataGridViewTextBoxColumn altaColumn;
-        private DataGridViewTextBoxColumn bajaColumn;
-        private DataGridViewTextBoxColumn cantidadColumn;
-        private DataGridViewButtonColumn venderColumn;
-        private DataGridViewButtonColumn comprarColumn;
     }
 }

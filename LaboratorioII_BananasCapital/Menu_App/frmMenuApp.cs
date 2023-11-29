@@ -55,22 +55,25 @@ namespace BC_Formularios
             adminModificarCuenta.Show();
         }
 
-        //private async void testNuGetToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
+        private void eliminarTarjetasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            drmAdminTarjeta adminEliminarTarjeta = new drmAdminTarjeta();
+            adminEliminarTarjeta.Show();
+        }
 
-        //    if (ingresoRol == "UsuarioAdministrador")
-        //    {
-        //        var info = await HolaxD();
-        //        var infoYMedio = info.ToArray()[249];
-        //        var info2 = 1;
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("No tienes permiso para acceder a este formulario.");
-        //    }
-        //}
+        private void modificarTarjetasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAdminTarjDatos adminModificararTarjeta = new frmAdminTarjDatos();
+            adminModificararTarjeta.Show();
+        }
 
-        private void testSQLToolStripMenuItem_Click(object sender, EventArgs e)
+        private void sqlAccionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<BibliotecaClases.AccionesHard.Acciones.Accion> acciones = BibliotecaClases.AccionesHard.Acciones.AccionesHardCodeadas.CrearAccionesHard();
+            BibliotecaClases.AccionesHard.Acciones.ConexionDataBaseSql2.InsertarAccionesEnBaseDeDatos(acciones);
+        }
+
+        private void sqlUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -84,14 +87,25 @@ namespace BC_Formularios
             }
         }
 
-        private void eliminarTarjetasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void modificarTarjetasToolStripMenuItem_Click(object sender, EventArgs e)
+        private void sqlTarjetasToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
     }
 }
+
+
+//private async void testNuGetToolStripMenuItem_Click(object sender, EventArgs e)
+//{
+
+//    if (ingresoRol == "UsuarioAdministrador")
+//    {
+//        var info = await HolaxD();
+//        var infoYMedio = info.ToArray()[249];
+//        var info2 = 1;
+//    }
+//    else
+//    {
+//        MessageBox.Show("No tienes permiso para acceder a este formulario.");
+//    }
+//}

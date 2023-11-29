@@ -23,6 +23,9 @@ namespace BibliotecaClases.Interfaces
             Dictionary<long, TarjetaDebito> Deserializacion(string datos);
             void GuardarEnArchivo();
             void VerificacionAdminTrial();
+
+            //public void Depositar();
+            //public void Extraer();
         }
     }
 }

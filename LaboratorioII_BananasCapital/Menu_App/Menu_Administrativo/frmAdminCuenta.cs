@@ -12,6 +12,8 @@ namespace BC_Formularios.Menu_App.Menu_Administrativo
 {
     public partial class frmAdminCuenta : Form
     {
+        private string tablaDB = "usuariobananas";
+
         public frmAdminCuenta()
         {
             InitializeComponent();
@@ -20,15 +22,15 @@ namespace BC_Formularios.Menu_App.Menu_Administrativo
         private void btnCargaUsuarios_Click(object sender, EventArgs e)
         {
             SQL_DataBase.MostrarDatosSql mostrarInfo = new SQL_DataBase.MostrarDatosSql();
-            mostrarInfo.mostrarUsuarios(userDataGridView);
+            mostrarInfo.MostrarDatos(userDataGridView, tablaDB);
         }
 
         private void btnEliminarUsuarios_Click(object sender, EventArgs e)
         {
             SQL_DataBase.MostrarDatosSql eliminar = new SQL_DataBase.MostrarDatosSql();
-            eliminar.EliminarUsuarios(txtMostrarID);
+            eliminar.EliminarDatos(txtMostrarID, tablaDB);
             SQL_DataBase.MostrarDatosSql mostrarInfo = new SQL_DataBase.MostrarDatosSql();
-            mostrarInfo.mostrarUsuarios(userDataGridView);
+            mostrarInfo.MostrarDatos(userDataGridView, tablaDB);
         }
 
         private void userDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
