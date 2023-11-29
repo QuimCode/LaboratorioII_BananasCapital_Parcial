@@ -91,17 +91,12 @@ namespace BibliotecaClases.AccionesHard
                         accion.PrecioBaja = Math.Round(accion.PrecioAlta * 1.2m, 2); // 20% más
                     }
 
-                    // Asegurar que PrecioBaja sea menor que PrecioAlta
                     accion.PrecioBaja = Math.Min(accion.PrecioBaja, accion.PrecioAlta);
 
                     accion.Cantidad = random.Next(100, 500);
                 }
 
-                // Puedes agregar aquí la lógica para actualizar los precios en la base de datos
                 ConexionDataBaseSql2.InsertarAccionesEnBaseDeDatos(acciones);
-  
-
-                // Simular espera de 10 segundos
                 Thread.Sleep(10000);
             }
         }

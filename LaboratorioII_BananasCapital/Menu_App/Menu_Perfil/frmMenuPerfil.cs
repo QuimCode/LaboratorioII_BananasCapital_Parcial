@@ -21,7 +21,8 @@ namespace BC_Formularios
             SQL_DataBase.InsertUserJsonSql selectData = new SQL_DataBase.InsertUserJsonSql();
             selectData.ObtenerUsuarioPorUsername(usuarioOperario);
 
-
+            txtMostrarNombre =
+            txtMostrarApellido = 
         }
     }
 }
