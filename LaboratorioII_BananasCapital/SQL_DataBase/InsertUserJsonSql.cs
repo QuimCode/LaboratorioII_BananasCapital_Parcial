@@ -268,14 +268,12 @@ namespace BC_Formularios.SQL_DataBase
             ConexionDataBaseSql conexionSql = new ConexionDataBaseSql();
             conexionSql.EstableceConexionTest();
 
-            // Aquí obtén la conexión utilizando el mismo método que usas en otras partes de tu código
             using (MySqlConnection conexion = conexionSql.EstableceConexionTest())
             {
                 try
                 {
                     conexion.Open();
 
-                    // Utilizando parámetros en la consulta SQL
                     string query = $"SELECT * FROM usuariobananas WHERE Username = {usuarioOperario}";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conexion))
@@ -314,6 +312,7 @@ namespace BC_Formularios.SQL_DataBase
                 }
                 finally
                 {
+                    // Cierras la conexión después de utilizarla
                     if (conexion.State == ConnectionState.Open)
                         conexion.Close();
                 }
@@ -326,9 +325,10 @@ namespace BC_Formularios.SQL_DataBase
 
 
 
-        //METODO VERIFICACION//
 
-        private bool UsuarioExiste(string username)
+            //METODO VERIFICACION//
+
+            private bool UsuarioExiste(string username)
         {
             try
             {
